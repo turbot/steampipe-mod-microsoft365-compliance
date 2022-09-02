@@ -8,9 +8,10 @@
 ![image](https://raw.githubusercontent.com/turbot/steampipe-mod-azure-compliance/main/docs/azure_compliance_dashboard.png)
 
 Or in a terminal:
-![image](https://raw.githubusercontent.com/turbot/steampipe-mod-azure-compliance/main/docs/azure_cis_v130_console.png) -->
+![image](https://raw.githubusercontent.com/turbot/steampipe-mod-azure-compliance/main/docs/azure_cis_v140_console.png) -->
 
 Includes support for:
+
 ## Getting started
 
 ### Installation
@@ -22,7 +23,8 @@ brew tap turbot/tap
 brew install steampipe
 ```
 
-Install the Azure Active Directory and the Office 365  plugins with [Steampipe](https://steampipe.io):
+Install the Azure Active Directory and the Office 365 plugins with [Steampipe](https://steampipe.io):
+
 ```sh
 steampipe plugin install azuread
 steampipe plugin install office365
@@ -59,18 +61,17 @@ steampipe check all
 Run a single benchmark:
 
 ```sh
-steampipe check benchmark.cis_v130_6
+steampipe check benchmark.cis_v140_1
 ```
 
 Run a specific control:
 
 ```sh
-steampipe check control.cis_v130_4_3_5
+steampipe check control.cis_v140_1_1_3
 ```
 
 Different output formats are also available, for more information please see
 [Output Formats](https://steampipe.io/docs/reference/cli/check#output-formats).
-
 
 ### Credentials
 

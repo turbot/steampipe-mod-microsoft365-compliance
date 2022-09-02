@@ -7,8 +7,8 @@ repository: "https://github.com/turbot/steampipe-mod-office365-compliance/"
 Run individual configuration, compliance and security controls or full `CIS` compliance benchmarks across all your Azure subscriptions.
 
 <!-- <img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance//main/docs/azure_compliance_dashboard.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance//main/docs/azure_cis_v130_dashboard.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance//main/docs/azure_cis_v130_console.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance//main/docs/azure_cis_v140_dashboard.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance//main/docs/azure_cis_v140_console.png" width="50%" type="thumbnail"/>
 <img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance//main/docs/azure_hipaa_hitrust_dashboard.png" width="50%" type="thumbnail"/> -->
 
 ## References
