@@ -7,7 +7,6 @@ with users_having_admin_roles as (
   where
     display_name like '%Administrator'
 ),
-
 policy_with_mfa as (
   select
     tenant_id,
@@ -21,13 +20,11 @@ policy_with_mfa as (
     jsonb_array_length(p.users->'excludeUsers') < 1
   group by tenant_id
 ),
-
 tenant_list as (
   select distinct on (tenant_id) tenant_id,
    display_name
   from azuread_user
 )
-
 select
   -- Required columns
   tenant_id as resource,
