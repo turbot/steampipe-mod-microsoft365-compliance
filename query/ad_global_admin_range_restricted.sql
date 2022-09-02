@@ -1,5 +1,4 @@
 --  Ensure that between two and four global admins are designated.
-
 with global_administrator_counts as (
   select
     role.tenant_id,
@@ -12,7 +11,6 @@ with global_administrator_counts as (
     u.id = m_id and role.display_name ='Global Administrator'
   group by role.tenant_id
 )
-
 select
   -- Required columns
   tenant_id as resource,
@@ -27,4 +25,4 @@ select
   -- Additional Dimensions
   tenant_id as tenant
 from
-  global_administrator_counts;
+  global_administrator_counts;        
