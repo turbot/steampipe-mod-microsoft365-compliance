@@ -11,7 +11,9 @@ benchmark "cis_v140" {
   documentation = file("./cis_v140/docs/cis_overview.md")
 
   children = [
-    benchmark.cis_v140_1
+    benchmark.cis_v140_1,
+    benchmark.cis_v140_2,
+    benchmark.cis_v140_3
   ]
 
   tags = merge(local.cis_v140_common_tags, {
