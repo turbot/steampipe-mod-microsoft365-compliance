@@ -17,19 +17,19 @@ tenant_list as(
   from 
     azuread_user
 )
-
 select 
   --required columns
   tenant_id as resource,
   case
-    when (select count from block_legacy_authentication where tenant_id=t.tenant_id) >0 then 'ok'
+    when (select count from block_legacy_authentication where tenant_id=t.tenant_id) >0 
+  then 'ok'
     else 'alarm'
   end as status,
   case
-    when (select count from block_legacy_authentication where tenant_id=t.tenant_id) >0 then 'conditional access policy are enabled.'
+    when (select count from block_legacy_authentication where tenant_id=t.tenant_id) >0 
+  then 'conditional access policy are enabled.'
     else 'conditional access policy disabled'
-    end as reason
+  end as reason
   -- Additional Dimensions
-  from 
-    tenant_list as t
-
+from 
+  tenant_list as t;
