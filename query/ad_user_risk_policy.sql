@@ -6,10 +6,10 @@ from
     azuread_conditional_access_policy
 where
     users->'includeUsers' ?& array['All'] and
-    jsonb_array_length(users->'excludeUsers') = 0 and
+    jsonb_array_length(users -> 'excludeUsers') = 0 and
     jsonb_array_length(user_risk_levels) != 0 and
     applications->'includeApplications' ?& array['All'] and
-    jsonb_array_length(applications->'excludeApplications') = 0 and
+    jsonb_array_length(applications -> 'excludeApplications') = 0 and
     built_in_controls ?& array['passwordChange']
     -- and state="enabled"  
     group by tenant_id
