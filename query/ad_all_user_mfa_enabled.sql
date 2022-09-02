@@ -1,4 +1,4 @@
--- Ensure multifactor authentication is enabled for all users in all roles
+-- Ensure multifactor authentication is enabled for all users in all roles.
 with users_having_admin_roles as (
   select
     array_agg(role_template_id) as rid
@@ -39,4 +39,3 @@ select
   tenant_id as tenant
 from
   tenant_list as t;
-  
