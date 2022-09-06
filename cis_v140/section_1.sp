@@ -112,7 +112,7 @@ control "cis_v140_1_1_4" {
 
 control "cis_v140_1_1_5" {
   title         = "1.1.5 Ensure that password protection is enabled for Active Directory"
-  description   = "Enable Azure Active Directory Password Protection to Active Directory to protect against the use of common passwords"
+  description   = "Enabling self-service password reset allows users to reset their own passwords in Azure AD. When your users sign in to Microsoft 365, they will be prompted to enter additional contact information that will help them reset their password in the future. If combined registration is enabled additional information, outside of multi-factor, will not be needed. As of August 2020 combined registration is enabled by default."
   sql           = query.ad_manual_control.sql
   documentation = file("./cis_v140/docs/cis_v140_1_1_5.md")
 
@@ -182,7 +182,7 @@ control "cis_v140_1_1_9" {
 
 control "cis_v140_1_1_10" {
   title         = "1.1.10 Use Just In Time privileged access to Office 365 roles"
-  description   = "Azure Active Directory Privileged Identity Management can be used to audit roles, allow just in time activation of roles and allow for periodic role attestation."
+  description   = "Azure Active Directory Privileged Identity Management can be used to audit roles, allow just in time activation of roles and allow for periodic role attestation. Organizations should remove permanent members from privileged Office 365 roles and instead make them eligible, through a JIT activation workflow."
   sql           = query.ad_manual_control.sql
   documentation = file("./cis_v140/docs/cis_v140_1_1_10.md")
 
@@ -196,9 +196,9 @@ control "cis_v140_1_1_10" {
 
 control "cis_v140_1_1_11" {
   title         = "1.1.11 Ensure Security Defaults is disabled on Azure Active Directory "
-  description   = "Security defaults in Azure Active Directory (Azure AD) make it easier to be secure and help protect your organization."
+  description   = "Security defaults in Azure Active Directory (Azure AD) make it easier to be secure and help protect your organization. Security defaults contain preconfigured security settings for common attacks. Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security-enabled at no extra cost. You turn on security defaults in the Azure portal. The use of security defaults however will prohibit custom settings which are being set with more advanced settings from this benchmark."
   sql           = query.ad_manual_control.sql
-  documentation = file("./cis_v140/docs/cis_v140_1_1_10.md")
+  documentation = file("./cis_v140/docs/cis_v140_1_1_11.md")
 
   tags = merge(local.cis_v140_1_1_common_tags, {
     cis_item_id = "1.1.11"
