@@ -22,7 +22,7 @@ signin_frequency_enabled as (
     jsonb_array_length(p.applications -> 'excludeApplications') = 0 and
     jsonb_array_length(p.built_in_controls) = 1 and
     p.built_in_controls ?& array['mfa']
-    -- and state="enabled"  
+    and state="enabled"  
     group by tenant_id
 ),
 tenant_list as (
