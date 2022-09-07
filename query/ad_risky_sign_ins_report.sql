@@ -24,16 +24,3 @@ from
   risky_sign_ins_report
 group by 
   tenant_id;
-
-
-
-
-
-
-
-
-
-    select id, risk_state ,created_date_time, risk_level_aggregated from azuread_sign_in_report where risk_level_aggregated = 'high' and 
-    created_date_time::timestamp >= (current_date - interval '7' day)
-
-
