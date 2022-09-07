@@ -7,7 +7,7 @@ select
     else 'alarm'
   end as status,
   case
-     when not (default_user_role_permissions -> 'allowedToCreateApps')::bool then 'third party integrated applications are not allowed.'
+     when not (default_user_role_permissions -> 'allowedToCreateApps')::bool then 'third party integrated applications not allowed.'
      else 'third party integrated applications are allowed.'
   end as reason,   
   -- Additional Dimensions

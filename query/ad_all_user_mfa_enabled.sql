@@ -15,7 +15,7 @@ policy_with_mfa as (
   where
     p.built_in_controls ?& array['mfa'] and
     (p.users -> 'includeRoles')::jsonb ?| (a.rid) and
-    jsonb_array_length(p.users->'excludeUsers') < 1
+    jsonb_array_length(p.users -> 'excludeUsers') < 1
   group by tenant_id
 ),
 tenant_list as (
