@@ -9,9 +9,9 @@ select
   case
      when not (default_user_role_permissions -> 'allowedToCreateApps')::bool then 'third party integrated applications not allowed.'
      else 'third party integrated applications are allowed.'
-  end as reason,   
+  end as reason,
   -- Additional Dimensions
   tenant_id as tenant,
   id
 from
-  azuread_authorization_policy;  
+  azuread_authorization_policy;

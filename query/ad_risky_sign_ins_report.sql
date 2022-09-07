@@ -1,4 +1,4 @@
-  -- Ensure the Azure AD 'Risky sign-ins' report is reviewed at least weekly
+-- Ensure the Azure AD 'Risky sign-ins' report is reviewed at least weekly
 with risky_sign_ins_report as (
   select
     id,
@@ -17,10 +17,10 @@ select
   case
      when count(*) < 1 then 'no risky sign ins reported in last week.'
      else count(*) || ' risky sign ins as reported in last week.'
-  end as reason,   
+  end as reason,
   -- Additional Dimensions
   tenant_id as tenant
-from  
+from
   risky_sign_ins_report
 group by 
   tenant_id;
