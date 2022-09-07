@@ -1,0 +1,1 @@
+-- Block OneDrive for Business sync from unmanaged devices
