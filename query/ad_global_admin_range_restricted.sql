@@ -1,4 +1,4 @@
---  Ensure that between two and four global admins are designated.
+--Ensure that between two and four global admins are designated.
 with global_administrator_counts as (
   select
     role.tenant_id,
@@ -21,8 +21,8 @@ select
   case
      when count >= 2 and count <= 4 then ' global administration count is between 2 and 4 '
      else ' global administration count is either less than 2 and more than 4 '
-  end as reason,   
+  end as reason,
   -- Additional Dimensions
   tenant_id as tenant
 from
-  global_administrator_counts;        
+  global_administrator_counts;
