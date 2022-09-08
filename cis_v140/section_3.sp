@@ -1,6 +1,6 @@
 locals {
   cis_v140_3_common_tags = merge(local.cis_v140_common_tags, {
-    cis_section_id = "1"
+    cis_section_id = "3"
   })
 }
 
@@ -23,7 +23,7 @@ control "cis_v140_3_1" {
   sql           = query.manual_control.sql
   documentation = file("./cis_v140/docs/cis_v140_2_6.md")
 
-  tags = merge(local.cis_v140_1_common_tags, {
+  tags = merge(local.cis_v140_3_common_tags, {
     cis_item_id = "3.1"
     cis_level   = "1"
     cis_type    = "manual"

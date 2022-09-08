@@ -79,6 +79,7 @@ control "cis_v140_1_1_2" {
     cis_item_id = "1.1.2"
     cis_level   = "2"
     cis_type    = "manual"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -93,6 +94,7 @@ control "cis_v140_1_1_3" {
     cis_item_id = "1.1.3"
     cis_level   = "1"
     cis_type    = "automated"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -107,6 +109,7 @@ control "cis_v140_1_1_4" {
     cis_item_id = "1.1.4"
     cis_level   = "1"
     cis_type    = "manual"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -121,6 +124,7 @@ control "cis_v140_1_1_5" {
     cis_item_id = "1.1.5"
     cis_level   = "1"
     cis_type    = "manual"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -135,6 +139,7 @@ control "cis_v140_1_1_6" {
     cis_item_id = "1.1.6"
     cis_level   = "1"
     cis_type    = "automated"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -149,6 +154,7 @@ control "cis_v140_1_1_7" {
     cis_item_id = "1.1.7"
     cis_level   = "1"
     cis_type    = "manual"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -161,8 +167,9 @@ control "cis_v140_1_1_8" {
 
   tags = merge(local.cis_v140_1_1_common_tags, {
     cis_item_id = "1.1.8"
-    cis_level   = "1"
+    cis_level   = "2"
     cis_type    = "manual"
+    license     = "E5"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -175,8 +182,9 @@ control "cis_v140_1_1_9" {
 
   tags = merge(local.cis_v140_1_1_common_tags, {
     cis_item_id = "1.1.9"
-    cis_level   = "1"
+    cis_level   = "2"
     cis_type    = "manual"
+    license     = "E5"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -189,8 +197,9 @@ control "cis_v140_1_1_10" {
 
   tags = merge(local.cis_v140_1_1_common_tags, {
     cis_item_id = "1.1.10"
-    cis_level   = "1"
+    cis_level   = "2"
     cis_type    = "manual"
+    license     = "E5"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -205,6 +214,7 @@ control "cis_v140_1_1_11" {
     cis_item_id = "1.1.11"
     cis_level   = "1"
     cis_type    = "manual"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -217,8 +227,9 @@ control "cis_v140_1_1_12" {
 
   tags = merge(local.cis_v140_1_1_common_tags, {
     cis_item_id = "1.1.12"
-    cis_level   = "1"
+    cis_level   = "2"
     cis_type    = "manual"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -231,8 +242,9 @@ control "cis_v140_1_1_13" {
 
   tags = merge(local.cis_v140_1_1_common_tags, {
     cis_item_id = "1.1.13"
-    cis_level   = "1"
+    cis_level   = "2"
     cis_type    = "manual"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -245,8 +257,9 @@ control "cis_v140_1_1_14" {
 
   tags = merge(local.cis_v140_1_1_common_tags, {
     cis_item_id = "1.1.14"
-    cis_level   = "1"
+    cis_level   = "2"
     cis_type    = "automated"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -261,6 +274,7 @@ control "cis_v140_1_1_15" {
     cis_item_id = "1.1.15"
     cis_level   = "1"
     cis_type    = "manual"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -273,8 +287,9 @@ control "cis_v140_1_1_16" {
 
   tags = merge(local.cis_v140_1_1_common_tags, {
     cis_item_id = "1.1.16"
-    cis_level   = "1"
+    cis_level   = "2"
     cis_type    = "manual"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -289,6 +304,7 @@ control "cis_v140_1_2" {
     cis_item_id = "1.2"
     cis_level   = "1"
     cis_type    = "automated"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -303,6 +319,7 @@ control "cis_v140_1_3" {
     cis_item_id = "1.3"
     cis_level   = "1"
     cis_type    = "automated"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -317,6 +334,7 @@ control "cis_v140_1_4" {
     cis_item_id = "1.4"
     cis_level   = "1"
     cis_type    = "automated"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -330,7 +348,8 @@ control "cis_v140_1_5" {
   tags = merge(local.cis_v140_1_common_tags, {
     cis_item_id = "1.5"
     cis_level   = "1"
-    cis_type    = "manual"
+    cis_type    = "automated"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
@@ -345,8 +364,7 @@ control "cis_v140_1_6" {
     cis_item_id = "1.6"
     cis_level   = "1"
     cis_type    = "manual"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
-
-
