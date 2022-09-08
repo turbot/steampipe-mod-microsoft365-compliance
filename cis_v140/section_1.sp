@@ -64,6 +64,7 @@ control "cis_v140_1_1_1" {
     cis_item_id = "1.1.1"
     cis_level   = "1"
     cis_type    = "automated"
+    license     = "E3"
     service     = "Azure/ActiveDirectory"
   })
 }
