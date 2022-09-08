@@ -5,7 +5,7 @@ locals {
 }
 
 benchmark "cis_v140_6" {
-  title         = "6 Data Management"
+  title         = "6 Storage"
   documentation = file("./cis_v140/docs/cis_v140_6.md")
   children = [
     control.cis_v140_6_1,
