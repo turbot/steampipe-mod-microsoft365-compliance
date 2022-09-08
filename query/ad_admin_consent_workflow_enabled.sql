@@ -1,1 +1,0 @@
--- Ensure the admin consent workflow is enabled
