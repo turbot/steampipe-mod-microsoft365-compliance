@@ -18,7 +18,7 @@ benchmark "cis_v140_2" {
     control.cis_v140_2_8,
     control.cis_v140_2_9,
     control.cis_v140_2_10,
-    control.cis_v140_2_11,
+    control.cis_v140_2_11
   ]
 
   tags = merge(local.cis_v140_2_common_tags, {

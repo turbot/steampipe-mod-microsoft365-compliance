@@ -35,6 +35,8 @@ benchmark "cis_v140_1_1" {
     control.cis_v140_1_1_1,
     control.cis_v140_1_1_2,
     control.cis_v140_1_1_3,
+    control.cis_v140_1_1_4,
+    control.cis_v140_1_1_5,
     control.cis_v140_1_1_6,
     control.cis_v140_1_1_7,
     control.cis_v140_1_1_8,
