@@ -9,7 +9,7 @@ select
   case
      when is_legacy_auth_protocols_enabled then 'authentication for sharepoint appllications is enabled.'
      else 'authentication for sharepoint appllications is not enabled.'
-  end as reason,   
+  end as reason,
   -- Additional Dimensions
   tenant_id as tenant
 from
