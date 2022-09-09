@@ -15,7 +15,7 @@ where
   group by tenant_id
 ),
 tenant_list as (
-  select distinct on (tenant_id) tenant_id from azuread_user;
+  select distinct on (tenant_id) tenant_id from azuread_user
 )
 select
   tenant_id as resource,
