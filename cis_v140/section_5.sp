@@ -64,7 +64,7 @@ control "cis_v140_5_2" {
 control "cis_v140_5_3" {
   title         = "5.3 Ensure the Azure AD 'Risky sign-ins' report is reviewed at least weekly"
   description   = "This report contains records of accounts that have had activity that could indicate they are compromised, such as accounts that have: -successfully signed in after multiple failures, which is an indication that the accounts have cracked passwords -signed in to your tenancy from a client IP address that has been recognized by Microsoft as an anonymous proxy IP address (such as a TOR network) -successful signins from users where two signins appeared to originate from different regions and the time between signins makes it impossible for the user to have traveled between those regions"
-  sql           = query.ad_manual_control.sql
+  sql           = query.ad_risky_sign_ins_report.sql
   documentation = file("./cis_v140/docs/cis_v140_5_3.md")
 
   tags = merge(local.cis_v140_5_common_tags, {
