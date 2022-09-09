@@ -1,15 +1,30 @@
+with audit_count as (
+  select
+    tenant_id,
+    count(id)
+  from
+    azuread_directory_audit_report
+  group by tenant_id
+),
+tenant_list as (
+  select
+    distinct on (tenant_id) tenant_id
+  from
+    azuread_user
+)
 select
   -- Required Columns
-  tenant_id as resource,
+  t.tenant_id as resource,
   case
-    when count(id) > 0 then 'ok'
+    when a.count > 0 then 'ok'
     else 'alarm'
-  end status,
+  end as status,
   case
-    when count(id) > 0 then 'Audit log search is enabled.'
+    when a.count > 0 then 'Audit log search is enabled.'
     else 'Audit log search is disabled.'
-  end reason,
+  end as reason,
   -- Additional Dimensions
-  tenant_id
+  t.tenant_id
 from
-  azuread_directory_audit_report;
+  tenant_list as t
+  left join audit_count as a on t.tenant_id = a.tenant_id;
