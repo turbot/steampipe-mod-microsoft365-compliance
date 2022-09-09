@@ -10,7 +10,7 @@ locals {
 mod "microsoft_365_foundations_compliance" {
   # hub metadata
   title         = "Microsoft 365 Foundations Compliance"
-  description   = "Run individual configuration, compliance and security controls or full compliance benchmarks for Microsoft 365 Foundations."
+  description   = "Run individual configuration, compliance and security controls or full compliance benchmarks for Microsoft Office 365 Foundations."
   color         = "#00A4EF"
   documentation = file("./docs/index.md")
   # icon          = "/images/mods/turbot/microsoft-365-compliance.svg"
@@ -18,7 +18,7 @@ mod "microsoft_365_foundations_compliance" {
 
   opengraph {
     title       = "Steampipe Mod for Microsoft 365 Compliance"
-    description = "Run individual configuration, compliance and security controls or full compliance benchmarks for Microsoft 365 Foundations."
+    description = "Run individual configuration, compliance and security controls or full compliance benchmarks for Microsoft Office 365 Foundations."
     image       = "/images/mods/turbot/microsoft-365-social-graphic.png"
   }
 
