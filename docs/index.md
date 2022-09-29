@@ -6,10 +6,9 @@ repository: "https://github.com/turbot/steampipe-mod-office365-compliance/"
 
 Run individual configuration, compliance and security controls or full `CIS` compliance benchmarks across all your Azure subscriptions.
 
-<!-- <img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance//main/docs/azure_compliance_dashboard.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance//main/docs/azure_cis_v140_dashboard.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance//main/docs/azure_cis_v140_console.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance//main/docs/azure_hipaa_hitrust_dashboard.png" width="50%" type="thumbnail"/> -->
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance/staging/docs/microsoft-365-foundations-compliance.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance/staging/docs/microsoft-365-foundations-compliance-benchmark-cis-v140.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance/staging/docs/microsoft-365-foundations-compliance-benchmark-cis-v140-controls.png" width="50%" type="thumbnail"/>
 
 ## References
 
@@ -92,7 +91,7 @@ Different output formats are also available, for more information please see
 
 ### Credentials
 
-<!-- This mod uses the credentials configured in the [Steampipe Azure plugin](https://hub.steampipe.io/plugins/turbot/azure) and the [Steampipe Azure Active Directory plugin](https://hub.steampipe.io/plugins/turbot/azuread). -->
+This mod uses the credentials configured in the [Steampipe Azure plugin](https://hub.steampipe.io/plugins/turbot/azure) and the [Steampipe Azure Active Directory plugin](https://hub.steampipe.io/plugins/turbot/azuread).
 
 ### Configuration
 
