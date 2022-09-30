@@ -1,4 +1,4 @@
-select 
+select
   --required columns
   tenant_id as resource,
   case
@@ -11,7 +11,8 @@ select
   end as reason,
   -- Additional Dimensions
   tenant_id
-from 
+from
   azuread_directory_setting
 where
   display_name = 'Password Rule Settings';
+  

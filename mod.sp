@@ -13,7 +13,6 @@ mod "microsoft_365_foundations_compliance" {
   description   = "Run individual configuration, compliance and security controls or full compliance benchmarks for Microsoft Office 365 Foundations."
   color         = "#00A4EF"
   documentation = file("./docs/index.md")
-  # icon          = "/images/mods/turbot/microsoft-365-compliance.svg"
   categories = ["azure", "cis", "compliance", "security"]
 
   opengraph {
@@ -21,10 +20,4 @@ mod "microsoft_365_foundations_compliance" {
     description = "Run individual configuration, compliance and security controls or full compliance benchmarks for Microsoft Office 365 Foundations."
     image       = "/images/mods/turbot/microsoft-365-social-graphic.png"
   }
-
-  # require {
-  #   plugin "azuread" {
-  #     version = "0.7.0"
-  #   }
-  # }
 }

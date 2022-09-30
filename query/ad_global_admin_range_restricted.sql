@@ -19,8 +19,8 @@ select
     else 'alarm'
   end as status,
   case
-     when count >= 2 and count <= 4 then ' global administration count is between 2 and 4 '
-     else ' global administration count is either less than 2 and more than 4 '
+    when count >= 2 and count <= 4 then ' global administration count is between 2 and 4.'
+    else ' global administration count is either less than 2 and more than 4.'
   end as reason,
   -- Additional Dimensions
   tenant_id as tenant

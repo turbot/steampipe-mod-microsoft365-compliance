@@ -7,28 +7,31 @@ with users_having_admin_roles as (
     display_name like '%Administrator'
 ),
 signin_frequency_enabled as (
-  select 
+  select
     tenant_id,
     count(p.*)
-  from 
+  from
     azuread_conditional_access_policy as p,
     users_having_admin_roles as a
   where
     (p.users -> 'includeRoles')::jsonb ?| (a.rid) and
     (p.sign_in_frequency -> 'isEnabled')::bool and
     (p.persistent_browser -> 'isEnabled')::bool and
-    p.persistent_browser ->> 'mode'='never' and 
+    p.persistent_browser ->> 'mode'='never' and
     p.applications -> 'includeApplications' ?& array['All'] and
     jsonb_array_length(p.applications -> 'excludeApplications') = 0 and
     jsonb_array_length(p.built_in_controls) = 1 and
     p.built_in_controls ?& array['mfa']
-    and state = 'enabled'  
-    group by tenant_id
+    and state = 'enabled'
+  group by
+    tenant_id
 ),
 tenant_list as (
-  select distinct on (tenant_id) tenant_id,
-  display_name 
-  from azuread_user
+  select
+    distinct on (tenant_id) tenant_id,
+    display_name
+  from
+    azuread_user
 )
 select
    -- Required Columns
@@ -38,8 +41,8 @@ select
     else 'alarm'
   end as status,
   case
-    when (select count from signin_frequency_enabled where tenant_id = t.tenant_id) > 0 then  'sign-in frequency policy enabled.'
-    else 'sign-in frequency policies disabled.'
+    when (select count from signin_frequency_enabled where tenant_id = t.tenant_id) > 0 then  'Sign-in frequency policy enabled.'
+    else 'Sign-in frequency policy disabled.'
   end as reason,
   -- Additional Dimensions
   t.display_name

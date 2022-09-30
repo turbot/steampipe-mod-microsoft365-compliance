@@ -2,7 +2,7 @@
 
 <!-- ????200+ checks covering industry defined security best practices for Azure. Includes full support for `CIS v1.3`,`CIS v1.4`, `HIPAA HITRUST 9.2` and `NIST SP 800-53` compliance benchmarks across all your Azure subscriptions. -->
 
-**Includes full support for the CIS v1.4.0 Microsoft 365 Foundations**.
+**Includes full support for the CIS v1.4.0 Microsoft 365 benchmarks**.
 
 <!-- Run checks in a dashboard:
 ![image](https://raw.githubusercontent.com/turbot/steampipe-mod-azure-compliance/main/docs/azure_compliance_dashboard.png)
@@ -23,11 +23,11 @@ brew tap turbot/tap
 brew install steampipe
 ```
 
-Install the Azure Active Directory and the Office 365 plugins with [Steampipe](https://steampipe.io):
+Install the Azure Active Directory and the Microsoft 365 plugins with [Steampipe](https://steampipe.io):
 
 ```sh
 steampipe plugin install azuread
-steampipe plugin install office365
+steampipe plugin install microsoft365
 ```
 
 Clone:

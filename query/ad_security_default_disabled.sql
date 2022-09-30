@@ -4,11 +4,11 @@ select
   case
     when not is_enabled then 'ok'
     else 'alarm'
-  end status,
+  end as status,
   case
-    when not is_enabled then 'Security Defaults is disabled.'
-    else 'Security Defaults is enabled.'
-  end reason,
+    when not is_enabled then 'Security Default is disabled.'
+    else 'Security Default is enabled.'
+  end as reason,
   -- Additional Dimensions
   tenant_id as tenant
 from

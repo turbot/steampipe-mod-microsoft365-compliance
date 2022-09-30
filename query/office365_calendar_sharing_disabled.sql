@@ -7,8 +7,8 @@ select
     else 'alarm'
   end as status,
   case
-     when permissions @> '[{"isInsideOrganization":true}]' then 'The calendar details sharing with external users is disabled.'
-     else 'The calendar details sharing with external users is enabled.'
+    when permissions @> '[{"isInsideOrganization":true}]' then 'Calendar details sharing with external users disabled.'
+    else 'Calendar details sharing with external users enabled.'
   end as reason,
   -- Additional Dimensions
   tenant_id as tenant
