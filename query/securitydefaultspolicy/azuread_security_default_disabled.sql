@@ -10,6 +10,6 @@ select
     else 'Security Default is enabled.'
   end as reason,
   -- Additional Dimensions
-  tenant_id as tenant
+  tenant_id
 from
   azuread_security_defaults_policy;

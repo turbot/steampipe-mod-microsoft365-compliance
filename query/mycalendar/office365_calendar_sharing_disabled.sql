@@ -1,6 +1,5 @@
--- Ensure calendar details sharing with external users is disabled
 select
-  -- Required columns
+  -- Required Columns
   user_identifier as resource,
   case
     when permissions @> '[{"isInsideOrganization":true}]' then 'ok'
@@ -11,6 +10,6 @@ select
     else 'Calendar details sharing with external users enabled.'
   end as reason,
   -- Additional Dimensions
-  tenant_id as tenant
+  tenant_id
 from
   office365_my_calendar;

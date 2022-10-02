@@ -1,6 +1,6 @@
 -- Block OneDrive for Business sync from unmanaged devices
 select
-  -- Required columns
+  -- Required Columns
   tenant_id as resource,
   case
     when jsonb_array_length(allowed_domain_guids_for_sync_app) >= 1 then 'ok'
@@ -11,7 +11,6 @@ select
     else 'Block onedrive for business sync from unmanaged devices.'
   end as reason,
   -- Additional Dimensions
-  tenant_id as tenant,
-  allowed_domain_guids_for_sync_app
+  tenant_id
 from
   office365_sharepoint_setting;

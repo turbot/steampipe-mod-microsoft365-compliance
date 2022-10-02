@@ -21,6 +21,7 @@ tenant_list as (
     azuread_user
 )
 select
+  -- Required Columns
   tenant_id as resource,
   case
     when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then 'ok'
@@ -30,6 +31,7 @@ select
     when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then 'Sign-in risk policies enabled.'
     else 'Sign-in risk policies disabled.'
   end as reason,
-  tenant_id as tenant_id
+  -- Additional Dimensions
+  tenant_id
 from
   tenant_list as t;

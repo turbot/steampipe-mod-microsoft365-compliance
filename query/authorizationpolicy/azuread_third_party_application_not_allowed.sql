@@ -1,6 +1,6 @@
 -- Ensure third party integrated applications are not allowed
 select
-  -- Required columns
+  -- Required Columns
   tenant_id as resource,
   case
     when not (default_user_role_permissions -> 'allowedToCreateApps')::bool then 'ok'
@@ -11,7 +11,6 @@ select
     else 'Third party integrated applications are allowed.'
   end as reason,
   -- Additional Dimensions
-  tenant_id as tenant,
-  id
+  tenant_id
 from
   azuread_authorization_policy;

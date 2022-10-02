@@ -1,4 +1,3 @@
--- Ensure the Azure AD 'Risky sign-ins' report is reviewed at least weekly
 with risky_sign_ins_report as (
   select
     id,
@@ -7,11 +6,11 @@ with risky_sign_ins_report as (
   from
     azuread_sign_in_report
   where
-    risk_level_aggregated = 'high' and
-    created_date_time::timestamp >= (current_date - interval '7' day)
+    risk_level_aggregated = 'high'
+    and created_date_time::timestamp >= (current_date - interval '7' day)
 )
 select
-  -- Required columns
+  -- Required Columns
   tenant_id as resource,
   'info' as status,
   case
@@ -19,9 +18,8 @@ select
     else count(*) || ' risky sign-ins reported in last week.'
   end as reason,
   -- Additional Dimensions
-  tenant_id as tenant
+  tenant_id
 from
   risky_sign_ins_report
 group by
   tenant_id;
-  

@@ -5,11 +5,12 @@ with block_legacy_authentication as (
   from
     azuread_conditional_access_policy
   where
-    client_app_types ?& array['exchangeActiveSync', 'other'] and
-    built_in_controls ?& array['block'] and
-    users -> 'includeUser' ?& array['All'] and
-    jsonb_array_length(users -> 'excludeUser') !=0
-    group by tenant_id
+    client_app_types ?& array['exchangeActiveSync', 'other']
+    and built_in_controls ?& array['block']
+    and users -> 'includeUser' ?& array['All']
+    and jsonb_array_length(users -> 'excludeUser') !=0
+  group by
+    tenant_id
 ),
 tenant_list as(
   select
@@ -18,7 +19,7 @@ tenant_list as(
     azuread_user
 )
 select
-  --required columns
+  -- Required Columns
   tenant_id as resource,
   case
     when (select count from block_legacy_authentication where tenant_id=t.tenant_id) >0 then 'ok'
@@ -27,8 +28,8 @@ select
   case
     when (select count from block_legacy_authentication where tenant_id=t.tenant_id) >0 then 'Conditional access policy enabled.'
     else 'Conditional access policy disabled.'
-  end as reason
+  end as reason,
   -- Additional Dimensions
+  tenant_id
 from
   tenant_list as t;
-  

@@ -1,8 +1,10 @@
+To obtain the latest version of the official guide, please visit http://benchmarks.cisecurity.org.
+
 ## Overview
 
 This document, Security Configuration Benchmark for Microsoft 365, provides prescriptive guidance for establishing a secure configuration posture for Microsoft 365 Cloud offerings running on any OS. This guide was tested against Microsoft 365, and includes recommendations for Exchange Online, SharePoint Online, OneDrive for Business, Skype/Teams, Azure Active Directory, and inTune. To obtain the latest version of this guide, please visit `http://cisecurity.org`. If you have questions, comments, or have identified ways to improve this guide, please write us at feedback@cisecurity.org.
 
-## Profile
+## Profiles
 
 The following configuration profiles are defined by this Benchmark:
 

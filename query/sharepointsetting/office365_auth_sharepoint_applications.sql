@@ -1,6 +1,6 @@
 -- Ensure modern authentication for SharePoint applications is required
 select
-  -- Required columns
+  -- Required Columns
   tenant_id as resource,
   case
     when is_legacy_auth_protocols_enabled then 'ok'
@@ -11,7 +11,6 @@ select
     else 'Authentication for sharepoint appllications disabled.'
   end as reason,
   -- Additional Dimensions
-  tenant_id as tenant
+  tenant_id
 from
   office365_sharepoint_setting;
-  

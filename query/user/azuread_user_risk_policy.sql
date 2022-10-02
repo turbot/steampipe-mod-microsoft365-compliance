@@ -1,18 +1,18 @@
 with block_legacy_authentication as (
-select
-  tenant_id,
-  count(*)
-from
-  azuread_conditional_access_policy
-where
-  users->'includeUsers' ?& array['All'] and
-  jsonb_array_length(users -> 'excludeUsers') = 0 and
-  jsonb_array_length(user_risk_levels) != 0 and
-  applications->'includeApplications' ?& array['All'] and
-  jsonb_array_length(applications -> 'excludeApplications') = 0 and
-  built_in_controls ?& array['passwordChange']
-group by
-  tenant_id
+  select
+    tenant_id,
+    count(*)
+  from
+    azuread_conditional_access_policy
+  where
+    users->'includeUsers' ?& array['All']
+    and jsonb_array_length(users -> 'excludeUsers') = 0
+    and jsonb_array_length(user_risk_levels) != 0
+    and applications->'includeApplications' ?& array['All']
+    and jsonb_array_length(applications -> 'excludeApplications') = 0
+    and built_in_controls ?& array['passwordChange']
+  group by
+    tenant_id
 ),
 tenant_list as (
   select
@@ -21,6 +21,7 @@ tenant_list as (
     azuread_user
 )
 select
+  -- Required columns
   tenant_id as resource,
   case
     when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then 'ok'
@@ -30,7 +31,7 @@ select
     when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then 'User risk policies enabled.'
     else 'User risk policies disabled.'
   end as reason,
-  tenant_id as tenant_id
+  -- Additional Dimensions
+  tenant_id
 from
   tenant_list as t;
-  

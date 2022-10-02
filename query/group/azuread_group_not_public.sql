@@ -10,7 +10,6 @@ select
     else display_name || ' is not public.'
   end reason,
   -- Additional Dimensions
-  tenant_id as tenant
+  tenant_id
 from
   azuread_group;
-  

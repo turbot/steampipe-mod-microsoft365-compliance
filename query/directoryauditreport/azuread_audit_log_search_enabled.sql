@@ -29,4 +29,3 @@ select
 from
   tenant_list as t
   left join audit_count as a on t.tenant_id = a.tenant_id;
-  

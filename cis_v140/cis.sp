@@ -1,5 +1,5 @@
 locals {
-  cis_v140_common_tags = merge(local.microsoft_365_compliance_common_tags, {
+  cis_v140_common_tags = merge(local.microsoft365_compliance_common_tags, {
     cis         = "true"
     cis_version = "v1.4.0"
   })
@@ -7,7 +7,7 @@ locals {
 
 benchmark "cis_v140" {
   title         = "CIS v1.4.0"
-  description   = "The CIS Microsoft Microsoft 365 Benchmark provides prescriptive guidance for establishing a secure baseline configuration for Microsoft Office 365."
+  description   = "The CIS Microsoft 365 Security Configuration Benchmark provides prescriptive guidance for establishing a secure configuration posture for Microsoft 365 Cloud offerings running on any OS."
   documentation = file("./cis_v140/docs/cis_overview.md")
 
   children = [

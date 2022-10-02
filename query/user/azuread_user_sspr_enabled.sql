@@ -1,6 +1,6 @@
 -- Ensure self-service password reset is enabled
 select
-  -- Required columns
+  -- Required Columns
   tenant_id as resource,
   case
     when allowed_to_use_sspr then 'ok'
@@ -11,7 +11,6 @@ select
     else 'Self-service password reset disabled.'
   end as reason,
   -- Additional Dimensions
-  tenant_id as tenant
+  tenant_id
 from
   azuread_authorization_policy;
-  

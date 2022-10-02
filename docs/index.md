@@ -1,14 +1,14 @@
 ---
-repository: "https://github.com/turbot/steampipe-mod-office365-compliance/"
+repository: "https://github.com/turbot/steampipe-mod-microsoft365-compliance/"
 ---
 
-# Microsoft 365 Foundations Compliance Mod
+# Microsoft 365 Compliance Mod
 
-Run individual configuration, compliance and security controls or full `CIS` compliance benchmarks across all your Azure subscriptions.
+Run individual configuration, compliance and security controls or full `CIS` compliance benchmarks across all your Microsoft 365 tenants.
 
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance/staging/docs/microsoft-365-foundations-compliance.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance/staging/docs/microsoft-365-foundations-compliance-benchmark-cis-v140.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-office365-compliance/staging/docs/microsoft-365-foundations-compliance-benchmark-cis-v140-controls.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_dashboard.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/staging/docs/microsoft365_compliance_cis_v140_dashboard.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/staging/docs/microsoft365_compliance_cis_v140_terminal.png" width="50%" type="thumbnail"/>
 
 ## References
 
@@ -16,7 +16,7 @@ Run individual configuration, compliance and security controls or full `CIS` com
 
 [Azure](https://azure.microsoft.com) provides on-demand cloud computing platforms and APIs to authenticated customers on a metered pay-as-you-go basis.
 
-[CIS Microsoft 365 Foundations Benchmark](https://www.cisecurity.org/benchmark/microsoft_365) provide a predefined set of compliance and security best-practice checks for Microsoft Office 365 usage.
+[CIS Microsoft 365 Benchmark](https://www.cisecurity.org/benchmark/microsoft_365) provide a predefined set of compliance and security best-practice checks for Microsoft Office 365 usage.
 
 [Steampipe](https://steampipe.io) is an open source CLI to instantly query cloud APIs using SQL.
 
@@ -24,8 +24,8 @@ Run individual configuration, compliance and security controls or full `CIS` com
 
 ## Documentation
 
-- **[Benchmarks and controls →](https://hub.steampipe.io/mods/turbot/azure_compliance/controls)**
-- **[Named queries →](https://hub.steampipe.io/mods/turbot/azure_compliance/queries)**
+- **[Benchmarks and controls →](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls)**
+- **[Named queries →](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/queries)**
 
 ## Getting started
 
@@ -38,19 +38,19 @@ brew tap turbot/tap
 brew install steampipe
 ```
 
-Install the Azure Active Directory and the Office 365 plugins with [Steampipe](https://steampipe.io):
+Install the Azure Active Directory and the Microsoft 365 plugins with [Steampipe](https://steampipe.io):
 
 ```sh
 steampipe plugin install azuread
-steampipe plugin install office365
+steampipe plugin install microsoft365
 
 ```
 
 Clone:
 
 ```sh
-git clone https://github.com/turbot/steampipe-mod-office365-compliance/.git
-cd steampipe-mod-office365-compliance/
+git clone https://github.com/turbot/steampipe-mod-microsoft365-compliance/.git
+cd steampipe-mod-microsoft365-compliance/
 ```
 
 ### Usage
@@ -91,7 +91,7 @@ Different output formats are also available, for more information please see
 
 ### Credentials
 
-This mod uses the credentials configured in the [Steampipe Azure plugin](https://hub.steampipe.io/plugins/turbot/azure) and the [Steampipe Azure Active Directory plugin](https://hub.steampipe.io/plugins/turbot/azuread).
+This mod uses the credentials configured in the Steampipe [Azure AD](https://hub.steampipe.io/plugins/turbot/azuread) and [Microsoft 365](https://hub.steampipe.io/plugins/turbot/microsoft365) plugins.
 
 ### Configuration
 
@@ -108,4 +108,4 @@ Please see the [contribution guidelines](https://github.com/turbot/steampipe/blo
 Want to help but not sure where to start? Pick up one of the `help wanted` issues:
 
 - [Steampipe](https://github.com/turbot/steampipe/labels/help%20wanted)
-- [Microsoft 365 Foundations Compliance Mod](https://github.com/turbot/steampipe-mod-office365-compliance//labels/help%20wanted)
+- [Microsoft 365 Compliance Mod](https://github.com/turbot/steampipe-mod-microsoft365-compliance//labels/help%20wanted)
