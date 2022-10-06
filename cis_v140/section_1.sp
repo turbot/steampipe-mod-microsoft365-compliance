@@ -15,11 +15,7 @@ benchmark "cis_v140_1" {
   documentation = file("./cis_v140/docs/cis_v140_1.md")
   children = [
     benchmark.cis_v140_1_1,
-    control.cis_v140_1_2,
-    control.cis_v140_1_3,
-    control.cis_v140_1_4,
-    control.cis_v140_1_5,
-    control.cis_v140_1_6
+    control.cis_v140_1_5
   ]
 
   tags = merge(local.cis_v140_1_common_tags, {
@@ -38,16 +34,11 @@ benchmark "cis_v140_1_1" {
     control.cis_v140_1_1_4,
     control.cis_v140_1_1_5,
     control.cis_v140_1_1_6,
-    control.cis_v140_1_1_7,
     control.cis_v140_1_1_8,
     control.cis_v140_1_1_9,
-    control.cis_v140_1_1_10,
     control.cis_v140_1_1_11,
     control.cis_v140_1_1_12,
-    control.cis_v140_1_1_13,
-    control.cis_v140_1_1_14,
-    control.cis_v140_1_1_15,
-    control.cis_v140_1_1_16
+    control.cis_v140_1_1_15
   ]
 
   tags = merge(local.cis_v140_1_1_common_tags, {
@@ -104,7 +95,7 @@ control "cis_v140_1_1_3" {
 control "cis_v140_1_1_4" {
   title         = "1.1.4 Ensure self-service password reset is enabled"
   description   = "Enabling self-service password reset allows users to reset their own passwords in Azure AD. When your users sign in to Microsoft 365, they will be prompted to enter additional contact information that will help them reset their password in the future. If combined registration is enabled additional information, outside of multi-factor, will not be needed. As of August 2020 combined registration is enabled by default."
-  sql           = query.azuread_manual_control.sql
+  sql           = query.azuread_user_sspr_enabled.sql
   documentation = file("./cis_v140/docs/cis_v140_1_1_4.md")
 
   tags = merge(local.cis_v140_1_1_common_tags, {
@@ -119,7 +110,7 @@ control "cis_v140_1_1_4" {
 control "cis_v140_1_1_5" {
   title         = "1.1.5 Ensure that password protection is enabled for Active Directory"
   description   = "Enabling self-service password reset allows users to reset their own passwords in Azure AD. When your users sign in to Microsoft 365, they will be prompted to enter additional contact information that will help them reset their password in the future. If combined registration is enabled additional information, outside of multi-factor, will not be needed. As of August 2020 combined registration is enabled by default."
-  sql           = query.azuread_manual_control.sql
+  sql           = query.azuread_password_protection_enabled.sql
   documentation = file("./cis_v140/docs/cis_v140_1_1_5.md")
 
   tags = merge(local.cis_v140_1_1_common_tags, {
@@ -141,21 +132,6 @@ control "cis_v140_1_1_6" {
     cis_item_id           = "1.1.6"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
-control "cis_v140_1_1_7" {
-  title         = "1.1.7 Ensure that password hash sync is enabled for resiliency and leaked credential detection"
-  description   = "Ensure that password hash sync is enabled for resiliency and leaked credential detection."
-  sql           = query.azuread_manual_control.sql
-  documentation = file("./cis_v140/docs/cis_v140_1_1_7.md")
-
-  tags = merge(local.cis_v140_1_1_common_tags, {
-    cis_item_id           = "1.1.7"
-    cis_level             = "1"
-    cis_type              = "manual"
     microsoft_365_license = "E3"
     service               = "Azure/ActiveDirectory"
   })
@@ -191,25 +167,10 @@ control "cis_v140_1_1_9" {
   })
 }
 
-control "cis_v140_1_1_10" {
-  title         = "1.1.10 Use Just In Time privileged access to Office 365 roles"
-  description   = "Azure Active Directory Privileged Identity Management can be used to audit roles, allow just in time activation of roles and allow for periodic role attestation. Organizations should remove permanent members from privileged Office 365 roles and instead make them eligible, through a JIT activation workflow."
-  sql           = query.azuread_manual_control.sql
-  documentation = file("./cis_v140/docs/cis_v140_1_1_10.md")
-
-  tags = merge(local.cis_v140_1_1_common_tags, {
-    cis_item_id           = "1.1.10"
-    cis_level             = "2"
-    cis_type              = "manual"
-    microsoft_365_license = "E5"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
 control "cis_v140_1_1_11" {
   title         = "1.1.11 Ensure Security Defaults is disabled on Azure Active Directory "
   description   = "Security defaults in Azure Active Directory (Azure AD) make it easier to be secure and help protect your organization. Security defaults contain preconfigured security settings for common attacks. Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security-enabled at no extra cost. You turn on security defaults in the Azure portal. The use of security defaults however will prohibit custom settings which are being set with more advanced settings from this benchmark."
-  sql           = query.azuread_manual_control.sql
+  sql           = query.azuread_security_default_disabled.sql
   documentation = file("./cis_v140/docs/cis_v140_1_1_11.md")
 
   tags = merge(local.cis_v140_1_1_common_tags, {
@@ -236,106 +197,16 @@ control "cis_v140_1_1_12" {
   })
 }
 
-control "cis_v140_1_1_13" {
-  title         = "1.1.13 Ensure that collaboration invitations are sent to allowed domains only"
-  description   = "Users should be able to send collaboration invitations to allowed domains only."
-  sql           = query.azuread_manual_control.sql
-  documentation = file("./cis_v140/docs/cis_v140_1_1_13.md")
-
-  tags = merge(local.cis_v140_1_1_common_tags, {
-    cis_item_id           = "1.1.13"
-    cis_level             = "2"
-    cis_type              = "manual"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
-control "cis_v140_1_1_14" {
-  title         = "1.1.14 Ensure that LinkedIn contact synchronization is disabled"
-  description   = "You should disable integration with LinkedIn as a measure to help prevent phishing scams."
-  sql           = query.azuread_manual_control.sql
-  documentation = file("./cis_v140/docs/cis_v140_1_1_14.md")
-
-  tags = merge(local.cis_v140_1_1_common_tags, {
-    cis_item_id           = "1.1.14"
-    cis_level             = "2"
-    cis_type              = "automated"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
 control "cis_v140_1_1_15" {
   title         = "1.1.15 Ensure Sign-in frequency is enabled and browser sessions are not persistent for Administrative users"
   description   = "Forcing a time out for MFA will help ensure that sessions are not kept alive for an indefinite period of time, ensuring that browser sessions are not persistent will help in prevention of drive-by attacks in web browsers, this also prevents creation and saving of session cookies leaving nothing for an attacker to take."
-  sql           = query.azuread_manual_control.sql
+  sql           = query.azuread_signin_frequency_policy.sql
   documentation = file("./cis_v140/docs/cis_v140_1_1_15.md")
 
   tags = merge(local.cis_v140_1_1_common_tags, {
     cis_item_id           = "1.1.15"
     cis_level             = "1"
     cis_type              = "manual"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
-control "cis_v140_1_1_16" {
-  title         = "1.1.16 Ensure the option to stay signed in is disabled"
-  description   = "The option for the user to Stay signed in or the Keep me signed in option will prompt a user after a successful login, when the user selects this option a persistent refresh token is created."
-  sql           = query.azuread_manual_control.sql
-  documentation = file("./cis_v140/docs/cis_v140_1_1_16.md")
-
-  tags = merge(local.cis_v140_1_1_common_tags, {
-    cis_item_id           = "1.1.16"
-    cis_level             = "2"
-    cis_type              = "manual"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
-control "cis_v140_1_2" {
-  title         = "1.2 Ensure modern authentication for Exchange Online is enabled"
-  description   = "Modern authentication in Microsoft 365 enables authentication features like multifactor authentication (MFA) using smart cards, certificate-based authentication (CBA), and third- party SAML identity providers."
-  sql           = query.azuread_manual_control.sql
-  documentation = file("./cis_v140/docs/cis_v140_1_2.md")
-
-  tags = merge(local.cis_v140_1_common_tags, {
-    cis_item_id           = "1.2"
-    cis_level             = "1"
-    cis_type              = "automated"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
-control "cis_v140_1_3" {
-  title         = "1.3 Ensure modern authentication for Skype for Business Online is enabled"
-  description   = "Modern authentication in Microsoft 365 enables authentication features like multifactor authentication (MFA) using smart cards, certificate-based authentication (CBA), and third- party SAML identity providers."
-  sql           = query.azuread_manual_control.sql
-  documentation = file("./cis_v140/docs/cis_v140_1_3.md")
-
-  tags = merge(local.cis_v140_1_common_tags, {
-    cis_item_id           = "1.3"
-    cis_level             = "1"
-    cis_type              = "automated"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
-control "cis_v140_1_4" {
-  title         = "1.4 Ensure modern authentication for SharePoint applications is required"
-  description   = "Modern authentication in Microsoft 365 enables authentication features like multifactor authentication (MFA) using smart cards, certificate-based authentication (CBA), and third- party SAML identity providers."
-  sql           = query.azuread_manual_control.sql
-  documentation = file("./cis_v140/docs/cis_v140_1_4.md")
-
-  tags = merge(local.cis_v140_1_common_tags, {
-    cis_item_id           = "1.4"
-    cis_level             = "1"
-    cis_type              = "automated"
     microsoft_365_license = "E3"
     service               = "Azure/ActiveDirectory"
   })
@@ -351,21 +222,6 @@ control "cis_v140_1_5" {
     cis_item_id           = "1.5"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
-control "cis_v140_1_6" {
-  title         = "1.6 Ensure Administrative accounts are separate, unassigned, and cloud-only"
-  description   = "Administrative accounts are special privileged accounts that could have varying levels of access to data, users, and settings. Regular user accounts should never be utilized for Administrative tasks and care should be taken, in the case of a hybrid environment, to keep Administrative accounts separated from on-prem accounts."
-  sql           = query.azuread_manual_control.sql
-  documentation = file("./cis_v140/docs/cis_v140_1_6.md")
-
-  tags = merge(local.cis_v140_1_common_tags, {
-    cis_item_id           = "1.6"
-    cis_level             = "1"
-    cis_type              = "manual"
     microsoft_365_license = "E3"
     service               = "Azure/ActiveDirectory"
   })

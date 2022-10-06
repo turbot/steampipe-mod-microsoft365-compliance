@@ -21,4 +21,14 @@ mod "microsoft365_compliance" {
     description = "Run individual configuration, compliance and security controls or full CIS compliance benchmarks across all of your Microsoft 365 tenants."
     image       = "/images/mods/turbot/microsoft-365-compliance-social-graphic.png"
   }
+
+  requires {
+    plugin "microsoft365" {
+      version = "0.0.1"
+    }
+    plugin "azuread" {
+      version = "0.7.0"
+    }
+  }
+
 }

@@ -13,11 +13,7 @@ benchmark "cis_v140" {
   children = [
     benchmark.cis_v140_1,
     benchmark.cis_v140_2,
-    benchmark.cis_v140_3,
-    benchmark.cis_v140_4,
-    benchmark.cis_v140_5,
-    benchmark.cis_v140_6,
-    benchmark.cis_v140_7
+    benchmark.cis_v140_5
   ]
 
   tags = merge(local.cis_v140_common_tags, {
