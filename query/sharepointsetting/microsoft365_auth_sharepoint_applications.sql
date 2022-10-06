@@ -14,3 +14,4 @@ select
   tenant_id
 from
   microsoft365_sharepoint_setting;
+  

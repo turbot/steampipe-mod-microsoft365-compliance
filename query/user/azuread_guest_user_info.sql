@@ -13,3 +13,4 @@ select
   tenant_id
 from
   azuread_user;
+  

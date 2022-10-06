@@ -48,3 +48,4 @@ select
   t.tenant_id
 from
   tenant_list as t;
+  

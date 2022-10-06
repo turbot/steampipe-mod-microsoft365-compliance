@@ -14,3 +14,4 @@ select
   tenant_id
 from
   azuread_authorization_policy;
+  
