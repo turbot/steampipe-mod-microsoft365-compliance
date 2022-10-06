@@ -7,7 +7,7 @@ locals {
   }
 }
 
-mod "microsoft_365_foundations_compliance" {
+mod "microsoft365_compliance" {
   # hub metadata
   title         = "Microsoft 365 Compliance"
   description   = "Run individual configuration, compliance and security controls or full `CIS` compliance benchmarks across all of your Microsoft 365 tenants."

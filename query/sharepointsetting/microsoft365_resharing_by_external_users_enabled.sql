@@ -12,4 +12,4 @@ select
   -- Additional Dimensions
   tenant_id
 from
-  office365_sharepoint_setting;
+  microsoft365_sharepoint_setting;

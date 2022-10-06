@@ -45,7 +45,7 @@ control "cis_v140_2_1" {
 control "cis_v140_2_2" {
   title         = "2.2 Ensure calendar details sharing with external users is disabled"
   description   = "You should not allow your users to share the full details of their calendars with external users."
-  sql           = query.azuread_manual_control.sql
+  sql           = query.microsoft365_calendar_sharing_disabled.sql
   documentation = file("./cis_v140/docs/cis_v140_2_2.md")
 
   tags = merge(local.cis_v140_2_common_tags, {

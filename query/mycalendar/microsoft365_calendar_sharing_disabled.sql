@@ -1,6 +1,6 @@
 select
   -- Required Columns
-  user_identifier as resource,
+  user_id as resource,
   case
     when permissions @> '[{"isInsideOrganization":true}]' then 'ok'
     else 'alarm'
@@ -12,4 +12,4 @@ select
   -- Additional Dimensions
   tenant_id
 from
-  office365_my_calendar;
+  microsoft365_my_calendar;
