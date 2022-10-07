@@ -1,4 +1,3 @@
--- Ensure third party integrated applications are not allowed
 select
   -- Required Columns
   tenant_id as resource,

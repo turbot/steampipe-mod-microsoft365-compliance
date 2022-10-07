@@ -1,4 +1,3 @@
--- Ensure self-service password reset is enabled
 select
   -- Required Columns
   tenant_id as resource,
@@ -14,4 +13,3 @@ select
   tenant_id
 from
   azuread_authorization_policy;
-  

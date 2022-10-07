@@ -1,4 +1,3 @@
--- Ensure document sharing is being controlled by domains with whitelist or blacklist
 select
   -- Required Columns
   tenant_id as resource,

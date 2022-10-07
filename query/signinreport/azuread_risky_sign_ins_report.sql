@@ -23,4 +23,3 @@ from
   risky_sign_ins_report
 group by
   tenant_id;
-  

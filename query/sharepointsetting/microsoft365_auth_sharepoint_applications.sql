@@ -1,4 +1,3 @@
--- Ensure modern authentication for SharePoint applications is required
 select
   -- Required Columns
   tenant_id as resource,
@@ -14,4 +13,3 @@ select
   tenant_id
 from
   microsoft365_sharepoint_setting;
-  

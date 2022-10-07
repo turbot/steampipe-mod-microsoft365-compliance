@@ -33,4 +33,3 @@ select
   tenant_id
 from
   tenant_list as t;
-  

@@ -13,4 +13,3 @@ select
   tenant_id
 from
   azuread_group;
-  

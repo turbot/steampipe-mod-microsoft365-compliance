@@ -1,4 +1,3 @@
--- Block OneDrive for Business sync from unmanaged devices
 select
   -- Required Columns
   tenant_id as resource,
