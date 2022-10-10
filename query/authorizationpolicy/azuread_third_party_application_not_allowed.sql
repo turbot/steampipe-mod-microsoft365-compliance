@@ -6,8 +6,8 @@ select
     else 'alarm'
   end as status,
   case
-    when not (default_user_role_permissions -> 'allowedToCreateApps')::bool then 'Third party integrated applications are not allowed.'
-    else 'Third party integrated applications are allowed.'
+    when not (default_user_role_permissions -> 'allowedToCreateApps')::bool then tenant_id || ' third party integrated applications are not allowed.'
+    else tenant_id || ' third party integrated applications are allowed.'
   end as reason,
   -- Additional Dimensions
   tenant_id

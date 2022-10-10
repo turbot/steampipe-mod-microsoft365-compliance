@@ -21,8 +21,8 @@ select
     else 'alarm'
   end as status,
   case
-    when a.count > 0 then 'Audit log search is enabled.'
-    else 'Audit log search is disabled.'
+    when a.count > 0 then t.tenant_id || ' audit log search is enabled.'
+    else t.tenant_id || ' audit log search is disabled.'
   end as reason,
   -- Additional Dimensions
   t.tenant_id

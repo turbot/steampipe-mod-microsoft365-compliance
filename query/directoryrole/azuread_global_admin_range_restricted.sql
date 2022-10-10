@@ -18,10 +18,7 @@ select
     when count >= 2 and count <= 4 then 'ok'
     else 'alarm'
   end as status,
-  case
-    when count >= 2 and count <= 4 then 'Global Administrator count is between 2 and 4.'
-    else 'Global Administrator count is either less than 2 and more than 4.'
-  end as reason,
+    tenant_id || ' has ' || count || ' global administrators.' as reason,
   -- Additional Dimensions
   tenant_id
 from

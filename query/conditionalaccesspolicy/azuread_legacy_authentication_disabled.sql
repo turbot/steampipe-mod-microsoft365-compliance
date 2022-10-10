@@ -26,8 +26,8 @@ select
     else 'alarm'
   end as status,
   case
-    when (select count from block_legacy_authentication where tenant_id=t.tenant_id) > 0 then 'Conditional access policy enabled.'
-    else 'Conditional access policy disabled.'
+    when (select count from block_legacy_authentication where tenant_id=t.tenant_id) > 0 then tenant_id || ' Conditional Access policies enabled.'
+    else tenant_id || ' Conditional Access policies disabled.'
   end as reason,
   -- Additional Dimensions
   tenant_id

@@ -6,8 +6,8 @@ select
     else 'ok'
   end as status,
   case
-    when is_resharing_by_external_users_enabled then 'External users can share files, folders, and sites they do not own.'
-    else 'External users cannot share files, folders, and sites they do not own.'
+    when is_resharing_by_external_users_enabled then tenant_id || ' external users can share files, folders, and sites they do not own.'
+    else tenant_id || ' external users cannot share files, folders, and sites they do not own.'
   end as reason,
   -- Additional Dimensions
   tenant_id

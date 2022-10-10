@@ -1,6 +1,6 @@
 # Microsoft 365 Compliance Mod for Steampipe
 
-83+ checks covering industry defined security best practices for Microsoft 365. Includes full support for `CIS v1.4` compliance benchmarks across all of your Microsoft 365 tenants.
+20+ checks covering industry defined security best practices for Microsoft 365. Includes full support for `CIS v1.4` compliance benchmarks across all of your Microsoft 365 tenants.
 
 **Includes full support for the CIS v1.4.0 Microsoft 365 benchmarks**.
 
@@ -8,7 +8,7 @@ Run checks in a dashboard:
 ![image](https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_dashboard.png)
 
 Or in a terminal:
-![image](https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_cis_v140_terminal.png) -->
+![image](https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_cis_v140_terminal.png)
 
 Includes support for:
 
@@ -89,9 +89,9 @@ If you have an idea for additional compliance controls, or just want to help mai
 
 - **[Join our Slack community →](https://steampipe.io/community/join)** and hang out with other Mod developers.
 
-Please see the [contribution guidelines](https://github.com/turbot/steampipe/blob/main/CONTRIBUTING.md) and our [code of conduct](https://github.com/turbot/steampipe/blob/main/CODE_OF_CONDUCT.md). All contributions are subject to the [Apache 2.0 open source license](https://github.com/turbot/steampipe-mod-azure-compliance/blob/main/LICENSE).
+Please see the [contribution guidelines](https://github.com/turbot/steampipe/blob/main/CONTRIBUTING.md) and our [code of conduct](https://github.com/turbot/steampipe/blob/main/CODE_OF_CONDUCT.md). All contributions are subject to the [Apache 2.0 open source license](https://github.com/turbot/steampipe-mod-microsoft365-compliance/blob/main/LICENSE).
 
 Want to help but not sure where to start? Pick up one of the `help wanted` issues:
 
 - [Steampipe](https://github.com/turbot/steampipe/labels/help%20wanted)
-- [Microsoft 365 Compliance Mod](https://github.com/turbot/steampipe-mod-microsoft365-compliance//labels/help%20wanted)
+- [Microsoft 365 Compliance Mod](https://github.com/turbot/steampipe-mod-microsoft365-compliance/labels/help%20wanted)

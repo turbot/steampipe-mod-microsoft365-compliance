@@ -6,8 +6,8 @@ select
     else 'alarm'
   end as status,
   case
-    when is_enabled then 'Admin consent workflow is enabled.'
-    else 'Admin consent workflow is disabled.'
+    when is_enabled then tenant_id || ' admin consent workflow is enabled.'
+    else tenant_id || ' admin consent workflow is disabled.'
   end as reason,
   -- Additional Dimensions
   tenant_id

@@ -6,8 +6,8 @@ select
     else 'ok'
   end status,
   case
-    when visibility = 'Public' then display_name || ' is public.'
-    else display_name || ' is not public.'
+    when visibility = 'Public' then title || ' is public.'
+    else title || ' is not public.'
   end reason,
   -- Additional Dimensions
   tenant_id

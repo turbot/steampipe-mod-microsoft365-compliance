@@ -168,7 +168,7 @@ control "cis_v140_1_1_9" {
 }
 
 control "cis_v140_1_1_11" {
-  title         = "1.1.11 Ensure Security Defaults is disabled on Azure Active Directory "
+  title         = "1.1.11 Ensure Security Defaults is disabled on Azure Active Directory"
   description   = "Security defaults in Azure Active Directory (Azure AD) make it easier to be secure and help protect your organization. Security defaults contain preconfigured security settings for common attacks. Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security-enabled at no extra cost. You turn on security defaults in the Azure portal. The use of security defaults however will prohibit custom settings which are being set with more advanced settings from this benchmark."
   sql           = query.azuread_security_default_disabled.sql
   documentation = file("./cis_v140/docs/cis_v140_1_1_11.md")

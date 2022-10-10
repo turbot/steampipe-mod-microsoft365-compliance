@@ -41,8 +41,8 @@ select
     else 'alarm'
   end as status,
   case
-    when (select count from signin_frequency_enabled where tenant_id = t.tenant_id) > 0 then  'Sign-in frequency policy enabled.'
-    else 'Sign-in frequency policy disabled.'
+    when (select count from signin_frequency_enabled where tenant_id = t.tenant_id) > 0 then tenant_id || ' sign-in frequency policy enabled.'
+    else tenant_id || ' sign-in frequency policy disabled.'
   end as reason,
   -- Additional Dimensions
   t.tenant_id

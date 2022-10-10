@@ -33,8 +33,8 @@ select
     else 'alarm'
   end as status,
   case
-    when (select count from policy_with_mfa where tenant_id = t.tenant_id) > 0 then 'MFA enabled for user having admin role.'
-    else 'MFA disabled for user having admin role.'
+    when (select count from policy_with_mfa where tenant_id = t.tenant_id) > 0 then tenant_id || ' MFA enabled for all users.'
+    else tenant_id || ' MFA disabled for all users.'
   end as reason,
   -- Additional Dimensions
   tenant_id

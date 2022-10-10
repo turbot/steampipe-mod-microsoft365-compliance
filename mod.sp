@@ -14,7 +14,7 @@ mod "microsoft365_compliance" {
   color         = "#00A4EF"
   documentation = file("./docs/index.md")
   icon          = "/images/mods/turbot/microsoft365_compliance.svg"
-  categories = ["azure", "cis", "compliance", "security"]
+  categories = ["microsoft365", "cis", "compliance", "security"]
 
   opengraph {
     title       = "Steampipe Mod for Microsoft 365 Compliance"

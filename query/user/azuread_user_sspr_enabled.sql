@@ -6,8 +6,8 @@ select
     else 'alarm'
   end as status,
   case
-    when allowed_to_use_sspr then 'Self-service password reset enabled.'
-    else 'Self-service password reset disabled.'
+    when allowed_to_use_sspr then tenant_id || ' self-service password reset enabled.'
+    else tenant_id || ' self-service password reset disabled.'
   end as reason,
   -- Additional Dimensions
   tenant_id

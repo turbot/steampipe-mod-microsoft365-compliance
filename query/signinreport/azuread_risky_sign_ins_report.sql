@@ -14,8 +14,8 @@ select
   tenant_id as resource,
   'info' as status,
   case
-    when count(*) < 1 then 'no risky sign-ins reported in last week.'
-    else count(*) || ' risky sign-ins reported in last week.'
+    when count(*) < 1 then tenant_id || ' no risky sign-ins reported in last week.'
+    else tenant_id || ' ' || count(*) || ' risky sign-ins reported in last week.'
   end as reason,
   -- Additional Dimensions
   tenant_id
