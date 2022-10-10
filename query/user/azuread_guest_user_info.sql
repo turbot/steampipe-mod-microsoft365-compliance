@@ -6,7 +6,7 @@ select
     else 'skip'
   end as status,
   case
-    when user_type = 'Guest' then display_name || ' is a guest user.'
+    when user_type = 'Guest' then display_name || ' is guest user.'
     else display_name || ' is ' || user_type || ' user.'
   end as reason,
   -- Additional Dimensions
