@@ -38,4 +38,4 @@ select
 from
   tenant_list as t left join
   enable_banned_password_check_on_premises_settings as e on e.tenant_id = t.tenant_id
-  left join banned_password_check_on_premise_mode_settings as b on b.tenant_id = t.tenant_id
+  left join banned_password_check_on_premise_mode_settings as b on b.tenant_id = t.tenant_id;
