@@ -1,8 +1,6 @@
 with global_administrator_counts as (
   select
     role.tenant_id,
-    u.id,
-    role.title,
     count(*)
   from
     azuread_directory_role as role,
@@ -11,19 +9,18 @@ with global_administrator_counts as (
   where
     u.id = m_id and role.display_name ='Global Administrator'
   group by
-    role.tenant_id,
-    u.id,
-    role.title
+    role.tenant_id
 )
 select
   -- Required Columns
-  id as resource,
+  t.tenant_id as resource,
   case
     when count >= 2 and count <= 4 then 'ok'
     else 'alarm'
   end as status,
-    title || ' has ' || count || ' global administrators.' as reason,
+    t.title || ' has ' || count || ' global administrators.' as reason,
   -- Additional Dimensions
-  tenant_id
+  t.tenant_id
 from
+  azure_tenant as t,
   global_administrator_counts;

@@ -13,27 +13,19 @@ with block_legacy_authentication as (
     and built_in_controls ?& array['passwordChange']
   group by
     tenant_id
-),
-tenant_list as (
-  select
-    distinct on (tenant_id) tenant_id,
-    id,
-    display_name
-  from
-    azuread_user
 )
 select
   -- Required columns
-  id as resource,
+  t.tenant_id as resource,
   case
     when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then 'ok'
     else 'alarm'
   end as status,
   case
-    when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then display_name || ' has user risk policies enabled.'
-    else display_name || ' has user risk policies disabled.'
+    when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then t.title || ' user risk policies enabled.'
+    else t.title || ' user risk policies disabled.'
   end as reason,
   -- Additional Dimensions
-  tenant_id
+  t.tenant_id
 from
-  tenant_list as t;
+  azure_tenant as t;

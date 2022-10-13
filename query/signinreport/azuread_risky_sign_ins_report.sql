@@ -1,7 +1,6 @@
 with risky_sign_ins_report as (
   select
     id,
-    user_display_name,
     tenant_id,
     risk_level_aggregated
   from
@@ -12,16 +11,17 @@ with risky_sign_ins_report as (
 )
 select
   -- Required Columns
-  tenant_id as resource,
+  r.tenant_id as resource,
   'info' as status,
   case
-    when count(*) < 1 then user_display_name || ' has no risky sign-ins reported in last week.'
-    else user_display_name || ' has ' || count(*) || ' risky sign-ins reported in last week.'
+    when count(*) < 1 then t.title || ' has no risky sign-ins reported in last week.'
+    else t.title || ' has ' || count(*) || ' risky sign-ins reported in last week.'
   end as reason,
   -- Additional Dimensions
-  tenant_id
+  r.tenant_id
 from
-  risky_sign_ins_report
+  risky_sign_ins_report as r,
+  azure_tenant as t
 group by
-  tenant_id,
-  user_display_name;
+  r.tenant_id,
+  t.title;

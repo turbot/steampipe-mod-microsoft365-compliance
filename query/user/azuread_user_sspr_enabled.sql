@@ -6,11 +6,11 @@ select
     else 'alarm'
   end as status,
   case
-    when allowed_to_use_sspr then a.title || ' has self-service password reset enabled.'
-    else a.title || ' has self-service password reset disabled.'
+    when allowed_to_use_sspr then t.title || ' has self-service password reset enabled.'
+    else t.title || ' has self-service password reset disabled.'
   end as reason,
   -- Additional Dimensions
   p.tenant_id
 from
   azuread_authorization_policy as p,
-  azure_tenant as a;
+  azure_tenant as t;

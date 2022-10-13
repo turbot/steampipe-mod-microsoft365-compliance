@@ -25,27 +25,19 @@ signin_frequency_enabled as (
     and state = 'enabled'
   group by
     tenant_id
-),
-tenant_list as (
-  select
-    distinct on (tenant_id) tenant_id,
-    display_name,
-    id
-  from
-    azuread_user
 )
 select
   -- Required Columns
-  id as resource,
+  tenant_id as resource,
   case
     when (select count from signin_frequency_enabled where tenant_id = t.tenant_id) > 0 then 'ok'
     else 'alarm'
   end as status,
   case
-    when (select count from signin_frequency_enabled where tenant_id = t.tenant_id) > 0 then display_name || ' has sign-in frequency policy enabled.'
-    else display_name || ' has sign-in frequency policy disabled.'
+    when (select count from signin_frequency_enabled where tenant_id = t.tenant_id) > 0 then t.title || ' has sign-in frequency policy enabled.'
+    else t.title || ' has sign-in frequency policy disabled.'
   end as reason,
   -- Additional Dimensions
   t.tenant_id
 from
-  tenant_list as t;
+  azure_tenant as t;

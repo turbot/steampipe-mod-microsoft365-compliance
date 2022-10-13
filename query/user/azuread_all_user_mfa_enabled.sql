@@ -17,27 +17,19 @@ policy_with_mfa as (
     and jsonb_array_length(p.users -> 'excludeUsers') < 1
   group by
     tenant_id
-),
-tenant_list as (
-  select
-    distinct on (tenant_id) tenant_id,
-    id,
-    display_name
-  from
-    azuread_user
 )
 select
   -- Required Columns
-  id as resource,
+  t.tenant_id as resource,
   case
     when (select count from policy_with_mfa where tenant_id = t.tenant_id) > 0 then 'ok'
     else 'alarm'
   end as status,
   case
-    when (select count from policy_with_mfa where tenant_id = t.tenant_id) > 0 then display_name || ' has MFA enabled for all users.'
-    else display_name || ' has MFA disabled for all users.'
+    when (select count from policy_with_mfa where tenant_id = t.tenant_id) > 0 then t.title || ' has MFA enabled for all users.'
+    else t.title || ' has MFA disabled for all users.'
   end as reason,
   -- Additional Dimensions
-  tenant_id
+  t.tenant_id
 from
-  tenant_list as t;
+  azure_tenant as t;
