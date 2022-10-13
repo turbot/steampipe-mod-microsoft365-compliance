@@ -6,8 +6,8 @@ select
     else 'alarm'
   end as status,
   case
-    when not is_enabled then tenant_id || ' has Security Defaults disabled.'
-    else tenant_id || ' has Security Defaults enabled.'
+    when not is_enabled then tenant_id || ' has security defaults disabled.'
+    else tenant_id || ' has security defaults enabled.'
   end as reason,
   -- Additional Dimensions
   tenant_id
