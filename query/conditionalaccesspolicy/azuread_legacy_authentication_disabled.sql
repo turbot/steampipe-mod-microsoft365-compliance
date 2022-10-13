@@ -11,6 +11,12 @@ with block_legacy_authentication as (
     and jsonb_array_length(users -> 'excludeUser') != 0
   group by
     tenant_id
+),
+tenant_list as(
+  select
+    distinct on(tenant_id) tenant_id
+  from
+    azuread_user
 )
 select
   -- Required Columns
@@ -20,10 +26,10 @@ select
     else 'alarm'
   end as status,
   case
-    when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then title || ' has Conditional Access policies enabled.'
-    else title || ' has Conditional Access policies disabled.'
+    when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then tenant_id || ' has Conditional Access policies enabled.'
+    else tenant_id || ' has Conditional Access policies disabled.'
   end as reason,
   -- Additional Dimensions
   tenant_id
 from
-  azure_tenant as t;
+  tenant_list as t;

@@ -13,14 +13,13 @@ with global_administrator_counts as (
 )
 select
   -- Required Columns
-  t.tenant_id as resource,
+  tenant_id as resource,
   case
     when count >= 2 and count <= 4 then 'ok'
     else 'alarm'
   end as status,
-    t.title || ' has ' || count || ' global administrators.' as reason,
+    tenant_id || ' has ' || count || ' global administrators.' as reason,
   -- Additional Dimensions
-  t.tenant_id
+  tenant_id
 from
-  azure_tenant as t,
   global_administrator_counts;

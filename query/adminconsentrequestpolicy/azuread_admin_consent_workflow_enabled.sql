@@ -1,16 +1,15 @@
 select
   -- Required Columns
-  p.tenant_id || '/' || p.title as resource,
+  tenant_id || '/adminRequestConsentPolicy' as resource,
   case
     when is_enabled then 'ok'
     else 'alarm'
   end as status,
   case
-    when is_enabled then a.title || ' has Admin Consent Workflow enabled.'
-    else a.title || ' has Admin Consent Workflow disabled.'
+    when is_enabled then tenant_id || ' has Admin Consent Workflow enabled.'
+    else tenant_id || ' has Admin Consent Workflow disabled.'
   end as reason,
   -- Additional Dimensions
-  p.tenant_id
+  tenant_id
 from
-  azuread_admin_consent_request_policy as p,
-  azure_tenant as a;
+  azuread_admin_consent_request_policy;

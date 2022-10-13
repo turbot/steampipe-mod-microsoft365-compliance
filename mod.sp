@@ -29,9 +29,6 @@ mod "microsoft365_compliance" {
     plugin "azuread" {
       version = "0.7.0"
     }
-    plugin "azure" {
-      version = "0.33.0"
-    }
   }
 
 }
