@@ -24,7 +24,7 @@ mod "microsoft365_compliance" {
 
   requires {
     plugin "azuread" {
-      version = "0.7.1"
+      version = "0.8.0"
     }
     plugin "microsoft365" {
       version = "0.0.1"
