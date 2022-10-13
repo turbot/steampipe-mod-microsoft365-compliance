@@ -16,20 +16,22 @@ with block_legacy_authentication as (
 ),
 tenant_list as (
   select
-    distinct on (tenant_id) tenant_id
+    distinct on (tenant_id) tenant_id,
+    display_name,
+    id
   from
     azuread_user
 )
 select
   -- Required Columns
-  tenant_id as resource,
+  id as resource,
   case
     when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then 'ok'
     else 'alarm'
   end as status,
   case
-    when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then tenant_id || ' sign-in risk policies enabled.'
-    else tenant_id || ' sign-in risk policies disabled.'
+    when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then t.display_name || ' has sign-in risk policies enabled.'
+    else t.display_name || ' has sign-in risk policies disabled.'
   end as reason,
   -- Additional Dimensions
   tenant_id

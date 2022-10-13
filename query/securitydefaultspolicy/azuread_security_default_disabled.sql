@@ -1,15 +1,16 @@
 select
   -- Required Columns
-  id as resource,
+  t.tenant_id || '/' || a.display_name as resource,
   case
     when not is_enabled then 'ok'
     else 'alarm'
   end as status,
   case
-    when not is_enabled then tenant_id || ' Security Defaults is disabled.'
-    else tenant_id || ' Security Defaults is enabled.'
+    when not is_enabled then t.title || ' has Security Defaults disabled.'
+    else t.title || ' has Security Defaults enabled.'
   end as reason,
   -- Additional Dimensions
-  tenant_id
+  a.tenant_id
 from
-  azuread_security_defaults_policy;
+  azuread_security_defaults_policy as a,
+  azure_tenant as t;

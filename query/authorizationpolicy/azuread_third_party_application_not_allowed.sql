@@ -1,15 +1,16 @@
 select
   -- Required Columns
-  tenant_id as resource,
+  p.tenant_id || '/' || p.display_name as resource,
   case
     when not (default_user_role_permissions -> 'allowedToCreateApps')::bool then 'ok'
     else 'alarm'
   end as status,
   case
-    when not (default_user_role_permissions -> 'allowedToCreateApps')::bool then tenant_id || ' third party integrated applications are not allowed.'
-    else tenant_id || ' third party integrated applications are allowed.'
+    when not (default_user_role_permissions -> 'allowedToCreateApps')::bool then a.title || ' has third party integrated applications not allowed.'
+    else a.title || ' has third party integrated applications allowed.'
   end as reason,
   -- Additional Dimensions
-  tenant_id
+  p.tenant_id
 from
-  azuread_authorization_policy;
+  azuread_authorization_policy as p,
+  azure_tenant as a;

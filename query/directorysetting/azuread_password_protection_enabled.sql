@@ -18,20 +18,22 @@ with enable_banned_password_check_on_premises_settings as (
       and (name = 'BannedPasswordCheckOnPremisesMode' and value = 'Enforce')
 ), tenant_list as (
   select
-    distinct on (tenant_id) tenant_id
+    distinct on (tenant_id) tenant_id,
+    id,
+    display_name
   from
     azuread_user
 )
 select
   -- Required Columns
-  t.tenant_id as resource,
+  t.id as resource,
   case
     when (e.tenant_id is not null) and (b.tenant_id is not null) then 'ok'
     else 'alarm'
   end as status,
   case
-    when (e.tenant_id is not null) and (b.tenant_id is not null) then t.tenant_id || ' password protection is enabled.'
-    else t.tenant_id || ' password protection is disabled.'
+    when (e.tenant_id is not null) and (b.tenant_id is not null) then t.display_name || ' password protection is enabled.'
+    else t.display_name || ' password protection is disabled.'
   end as reason,
   -- Additional Dimensions
   t.tenant_id

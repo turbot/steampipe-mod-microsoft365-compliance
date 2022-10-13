@@ -23,20 +23,21 @@ policy_with_mfa as (
 tenant_list as (
   select
     distinct on (tenant_id) tenant_id,
+    id,
     display_name
   from
     azuread_user
 )
 select
   -- Required Columns
-  tenant_id as resource,
+  id as resource,
   case
     when (select count from policy_with_mfa where tenant_id = t.tenant_id) > 0 then 'ok'
     else 'alarm'
   end as status,
   case
-    when (select count from policy_with_mfa where tenant_id = t.tenant_id) > 0 then tenant_id || ' MFA enabled for all users in administrative roles.'
-    else tenant_id || ' MFA disabled for all users in administrative roles.'
+    when (select count from policy_with_mfa where tenant_id = t.tenant_id) > 0 then display_name || ' has MFA enabled for all users in administrative roles.'
+    else display_name || ' has MFA disabled for all users in administrative roles.'
   end as reason,
   -- Additional Dimensions
   tenant_id

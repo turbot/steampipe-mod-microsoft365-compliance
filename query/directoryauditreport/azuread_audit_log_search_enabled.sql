@@ -9,20 +9,22 @@ with audit_count as (
 ),
 tenant_list as (
   select
-    distinct on (tenant_id) tenant_id
+    distinct on (tenant_id) tenant_id,
+    display_name,
+    id
   from
     azuread_user
 )
 select
   -- Required Columns
-  t.tenant_id as resource,
+  id as resource,
   case
     when a.count > 0 then 'ok'
     else 'alarm'
   end as status,
   case
-    when a.count > 0 then t.tenant_id || ' audit log search is enabled.'
-    else t.tenant_id || ' audit log search is disabled.'
+    when a.count > 0 then t.display_name || ' has audit log search enabled.'
+    else t.display_name || ' has audit log search disabled.'
   end as reason,
   -- Additional Dimensions
   t.tenant_id
