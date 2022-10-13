@@ -1,6 +1,6 @@
 select
   -- Required Columns
-  tenant_id || '/' || display_name as resource,
+  tenant_id || '/' || id as resource,
   case
     when not (default_user_role_permissions -> 'allowedToCreateApps')::bool then 'ok'
     else 'alarm'

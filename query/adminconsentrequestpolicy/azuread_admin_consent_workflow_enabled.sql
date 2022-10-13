@@ -1,6 +1,6 @@
 select
   -- Required Columns
-  tenant_id || '/adminRequestConsentPolicy' as resource,
+  tenant_id || '/adminConsentRequestPolicy' as resource,
   case
     when is_enabled then 'ok'
     else 'alarm'

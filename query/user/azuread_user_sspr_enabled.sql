@@ -1,6 +1,6 @@
 select
   -- Required Columns
-  tenant_id || '/' || display_name as resource,
+  tenant_id || '/' || id as resource,
   case
     when allowed_to_use_sspr then 'ok'
     else 'alarm'

@@ -31,8 +31,8 @@ select
     else 'alarm'
   end as status,
   case
-    when (e.tenant_id is not null) and (b.tenant_id is not null) then t.tenant_id || ' password protection is enabled.'
-    else t.tenant_id || ' password protection is disabled.'
+    when (e.tenant_id is not null) and (b.tenant_id is not null) then t.tenant_id || ' has password protection enabled.'
+    else t.tenant_id || ' has password protection disabled.'
   end as reason,
   -- Additional Dimensions
   t.tenant_id

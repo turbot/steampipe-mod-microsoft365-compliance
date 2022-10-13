@@ -28,8 +28,8 @@ select
     else 'alarm'
   end as status,
   case
-    when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then t.tenant_id || ' user risk policies enabled.'
-    else t.tenant_id || ' user risk policies disabled.'
+    when (select count from block_legacy_authentication where tenant_id = t.tenant_id) > 0 then t.tenant_id || ' has user risk policies enabled.'
+    else t.tenant_id || ' has user risk policies disabled.'
   end as reason,
   -- Additional Dimensions
   t.tenant_id

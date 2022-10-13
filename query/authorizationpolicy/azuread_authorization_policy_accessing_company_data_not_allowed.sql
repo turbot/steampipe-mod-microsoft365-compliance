@@ -1,6 +1,6 @@
 select
   -- Required Columns
-  tenant_id || '/' || display_name as resource,
+  tenant_id || '/' || id as resource,
   case
     when jsonb_array_length(default_user_role_permissions -> 'permissionGrantPoliciesAssigned') = 0 then 'ok'
     else 'alarm'

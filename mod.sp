@@ -30,5 +30,4 @@ mod "microsoft365_compliance" {
       version = "0.7.0"
     }
   }
-
 }

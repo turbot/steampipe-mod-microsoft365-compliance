@@ -1,6 +1,6 @@
 select
   -- Required Columns
-  tenant_id || '/' || display_name as resource,
+  tenant_id || '/' || id as resource,
   case
     when not is_enabled then 'ok'
     else 'alarm'
