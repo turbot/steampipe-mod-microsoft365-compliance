@@ -10,7 +10,7 @@ locals {
 mod "microsoft365_compliance" {
   # hub metadata
   title         = "Microsoft 365 Compliance"
-  description   = "Run individual configuration, compliance and security controls or full `CIS` compliance benchmarks across all of your Microsoft 365 tenants."
+  description   = "Run individual configuration, compliance and security controls or full CIS compliance benchmarks across all of your Microsoft 365 tenants."
   color         = "#00A4EF"
   documentation = file("./docs/index.md")
   icon          = "/images/mods/turbot/microsoft365_compliance.svg"
@@ -23,11 +23,11 @@ mod "microsoft365_compliance" {
   }
 
   requires {
+    plugin "azuread" {
+      version = "0.7.1"
+    }
     plugin "microsoft365" {
       version = "0.0.1"
-    }
-    plugin "azuread" {
-      version = "0.7.0"
     }
   }
 }
