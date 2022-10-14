@@ -13,16 +13,16 @@ mod "microsoft365_compliance" {
   description   = "Run individual configuration, compliance and security controls or full CIS compliance benchmarks across all of your Microsoft 365 tenants."
   color         = "#00A4EF"
   documentation = file("./docs/index.md")
-  icon          = "/images/mods/turbot/microsoft365_compliance.svg"
+  icon          = "/images/mods/turbot/mircosoft365-compliance.svg"
   categories    = ["microsoft365", "cis", "compliance", "security"]
 
   opengraph {
     title       = "Steampipe Mod for Microsoft 365 Compliance"
     description = "Run individual configuration, compliance and security controls or full CIS compliance benchmarks across all of your Microsoft 365 tenants."
-    image       = "/images/mods/turbot/microsoft-365-compliance-social-graphic.png"
+    image       = "/images/mods/turbot/mircosoft365-compliance-social-graphic.png"
   }
 
-  requires {
+  require {
     plugin "azuread" {
       version = "0.8.0"
     }
