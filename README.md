@@ -35,7 +35,7 @@ steampipe plugin install microsoft365
 Clone:
 
 ```sh
-git clone https://github.com/turbot/steampipe-mod-microsoft365-compliance/.git
+git clone https://github.com/turbot/steampipe-mod-microsoft365-compliance.git
 cd steampipe-mod-microsoft365-compliance/
 ```
 
