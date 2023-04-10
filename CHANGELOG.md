@@ -1,3 +1,13 @@
+## v0.4 [2023-04-11]
+
+_Bug fixes_
+
+- Remove the following unused queries referencing `microsoft365_sharepoint_setting` table. ([#34](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/34))
+  - `microsoft365_auth_sharepoint_applications`
+  - `microsoft365_block_onedrive_business_sync`
+  - `microsoft365_domain_sharing_restriction_mode`
+  - `microsoft365_resharing_by_external_users_enabled`
+  
 ## v0.3 [2022-12-22]
 
 _Bug fixes_
