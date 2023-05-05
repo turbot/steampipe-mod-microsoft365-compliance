@@ -38,8 +38,8 @@ query "azuread_password_protection_enabled" {
       end as reason
       ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
     from
-      tenant_list as t left join
-      enable_banned_password_check_on_premises_settings as e on e.tenant_id = t.tenant_id
+      tenant_list as t
+      left join enable_banned_password_check_on_premises_settings as e on e.tenant_id = t.tenant_id
       left join banned_password_check_on_premise_mode_settings as b on b.tenant_id = t.tenant_id;
   EOQ
 }
