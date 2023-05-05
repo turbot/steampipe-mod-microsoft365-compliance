@@ -212,21 +212,6 @@ control "cis_v150_1_1_15" {
   })
 }
 
-# control "cis_v150_1_3" {
-#   title         = "1.3 Ensure modern authentication for SharePoint applications is required"
-#   description   = "Modern authentication in Microsoft 365 enables authentication features like multifactor authentication (MFA) using smart cards, certificate-based authentication (CBA), and third-party SAML identity providers."
-#   query         = query.azuread_user_password_not_set_to_expire
-#   documentation = file("./cis_v150/docs/cis_v150_1_3.md")
-
-#   tags = merge(local.cis_v150_1_common_tags, {
-#     cis_item_id           = "1.3"
-#     cis_level             = "1"
-#     cis_type              = "automated"
-#     microsoft_365_license = "E3"
-#     service               = "Azure/ActiveDirectory"
-#   })
-# }
-
 control "cis_v150_1_4" {
   title         = "1.4 Ensure that Office 365 Passwords Are Not Set to Expire"
   description   = "Microsoft cloud-only accounts have a pre-defined password policy that cannot be changed. The only items that can change are the number of days until a password expires and whether or not passwords expire at all."
@@ -241,4 +226,3 @@ control "cis_v150_1_4" {
     service               = "Azure/ActiveDirectory"
   })
 }
-

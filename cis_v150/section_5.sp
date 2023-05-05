@@ -44,7 +44,7 @@ control "cis_v150_5_3" {
   tags = merge(local.cis_v150_5_common_tags, {
     cis_item_id           = "5.3"
     cis_level             = "1"
-    cis_type              = "automated"
+    cis_type              = "manual"
     microsoft_365_license = "E3"
     service               = "Azure/ActiveDirectory"
   })
