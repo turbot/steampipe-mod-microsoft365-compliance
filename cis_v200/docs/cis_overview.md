@@ -10,8 +10,7 @@ The following configuration profiles are defined by this Benchmark:
 
 **E3 Level 1**
 
-Items in this profile apply to customer deployments of Microsoft M365 with an E3
-license and intend to:
+Items in this profile apply to customer deployments of Microsoft M365 with an E3 license and intend to:
   - be practical and prudent;
   - provide a clear security benefit; and
   - not inhibit the utility of the technology beyond acceptable means.
