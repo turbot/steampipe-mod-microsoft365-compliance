@@ -21,7 +21,7 @@ query "azuread_global_admin_range_restricted" {
         when count >= 2 and count <= 4 then 'ok'
         else 'alarm'
       end as status,
-        tenant_id || ' has ' || count || ' global administrators.' as reason
+      tenant_id || ' has ' || count || ' global administrators.' as reason
       ${local.common_dimensions_sql}
     from
       global_administrator_counts;

@@ -5,19 +5,19 @@ query "azuread_password_protection_enabled" {
         tenant_id,
         id
       from
-      azuread_directory_setting
+        azuread_directory_setting
       where
         display_name = 'Password Rule Settings'
         and (name = 'EnableBannedPasswordCheckOnPremises' and value = 'True')
     ), banned_password_check_on_premise_mode_settings as (
-        select
-          tenant_id,
-          id
-        from
-        azuread_directory_setting
-        where
-          display_name = 'Password Rule Settings'
-          and (name = 'BannedPasswordCheckOnPremisesMode' and value = 'Enforce')
+      select
+        tenant_id,
+        id
+      from
+      azuread_directory_setting
+      where
+        display_name = 'Password Rule Settings'
+        and (name = 'BannedPasswordCheckOnPremisesMode' and value = 'Enforce')
     ),
     tenant_list as (
       select

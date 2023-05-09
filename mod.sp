@@ -17,7 +17,6 @@ variable "common_dimensions" {
 }
 
 locals {
-
   # Local internal variable to build the SQL select clause for common
   # dimensions using a table name qualifier if required. Do not edit directly.
   common_dimensions_qualifier_sql = <<-EOQ
