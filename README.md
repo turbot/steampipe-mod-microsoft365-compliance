@@ -13,6 +13,7 @@ Or in a terminal:
 Includes support for:
 
 * [Microsoft 365 CIS v1.4.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v140)
+* [Microsoft 365 CIS v1.5.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v150) 🚀 New!
 
 ## Getting started
 
