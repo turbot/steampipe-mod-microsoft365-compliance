@@ -274,6 +274,21 @@ control "cis_v200_1_1_16" {
   })
 }
 
+control "cis_v200_1_1_21" {
+  title         = "1.1.21 Ensure 'Microsoft Azure Management' is limited to administrative roles"
+  description   = "The Microsoft Azure Management application governs various Azure services and can be secured through the implementation of a Conditional Access policy. This policy can restrict specific user accounts from accessing the related portals and applications."
+  query         = query.azuread_microsoft_azure_management_limited_to_administrative_roles
+  documentation = file("./cis_v200/docs/cis_v200_1_1_21.md")
+
+  tags = merge(local.cis_v200_1_1_common_tags, {
+    cis_item_id           = "1.1.21"
+    cis_level             = "1"
+    cis_type              = "manual"
+    microsoft_365_license = "E3"
+    service               = "Azure/ActiveDirectory"
+  })
+}
+
 control "cis_v200_1_4" {
   title         = "1.4 Ensure the 'Password expiration policy' is set to 'Set passwords to never expire"
   description   = "Microsoft cloud-only accounts have a pre-defined password policy that cannot be changed. The only items that can change are the number of days until a password expires and whether or not passwords expire at all."
