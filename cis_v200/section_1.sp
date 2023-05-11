@@ -32,15 +32,13 @@ benchmark "cis_v200_1_1" {
     control.cis_v200_1_1_2,
     control.cis_v200_1_1_3,
     control.cis_v200_1_1_4,
-    control.cis_v200_1_1_5,
-    control.cis_v200_1_1_6,
     control.cis_v200_1_1_8,
     control.cis_v200_1_1_9,
     control.cis_v200_1_1_11,
-    control.cis_v200_1_1_12,
     control.cis_v200_1_1_13,
     control.cis_v200_1_1_14,
-    control.cis_v200_1_1_16
+    control.cis_v200_1_1_16,
+    control.cis_v200_1_1_21
   ]
 
   tags = merge(local.cis_v200_1_1_common_tags, {
@@ -109,36 +107,6 @@ control "cis_v200_1_1_4" {
   })
 }
 
-control "cis_v200_1_1_5" {
-  title         = "1.1.5 Ensure Microsoft Authenticator is configured to protect against MFA fatigue"
-  description   = "Microsoft has released additional settings to enhance the configuration of the Microsoft Authenticator application. These settings provide additional information and context to users who receive MFA passwordless and push requests, such as geographic location the request came from, the requesting application and requiring a number match. Ensure the following are Enabled: -Require number matching for push notifications. -Show application name in push and passwordless notifications. -Show geographic location in push and passwordless notifications."
-  query         = query.azuread_password_protection_enabled
-  documentation = file("./cis_v200/docs/cis_v200_1_1_5.md")
-
-  tags = merge(local.cis_v200_1_1_common_tags, {
-    cis_item_id           = "1.1.5"
-    cis_level             = "1"
-    cis_type              = "manual"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
-control "cis_v200_1_1_6" {
-  title         = "1.1.6 Ensure 'Phishing-resistant MFA strength' is required for Administrators"
-  description   = "Authentication strength is a Conditional Access control that allows administrators to specify which combination of authentication methods can be used to access a resource. For example, they can make only phishing-resistant authentication methods available to access a sensitive resource. But to access a non-sensitive resource, they can allow less secure multifactor authentication (MFA) combinations, such as password + SMS. Microsoft has 3 built-in authentication strengths. MFA strength, Passwordless MFA strength, and Phishing-resistant MFA strength. Ensure administrator roles are using a CA policy with Phishing-resistant MFA strength."
-  query         = query.azuread_legacy_authentication_disabled
-  documentation = file("./cis_v200/docs/cis_v200_1_1_6.md")
-
-  tags = merge(local.cis_v200_1_1_common_tags, {
-    cis_item_id           = "1.1.6"
-    cis_level             = "2"
-    cis_type              = "manual"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
 control "cis_v200_1_1_7" {
   title         = "1.1.7 Ensure that between two and four global admins are designated"
   description   = "More than one global administrator should be designated so a single admin can be monitored and to provide redundancy should a single admin leave an organization. Additionally, there should be no more than four global admins set for any tenant. Ideally global administrators will have no licenses assigned to them."
@@ -169,36 +137,6 @@ control "cis_v200_1_1_8" {
   })
 }
 
-control "cis_v200_1_1_9" {
-  title         = "1.1.9 Ensure custom banned passwords lists are used"
-  description   = "With Azure AD Password Protection, default global banned password lists are automatically applied to all users in an Azure AD tenant. To support business and security needs, custom banned password lists can be defined. When users change or reset their passwords, these banned password lists are checked to enforce the use of strong passwords."
-  query         = query.azuread_user_risk_policy
-  documentation = file("./cis_v200/docs/cis_v200_1_1_9.md")
-
-  tags = merge(local.cis_v200_1_1_common_tags, {
-    cis_item_id           = "1.1.9"
-    cis_level             = "1"
-    cis_type              = "manual"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
-control "cis_v200_1_1_10" {
-  title         = "1.1.10 Ensure password protection is enabled for on-prem Active Directory"
-  description   = "Azure Active Directory (Azure AD) Password Protection provides a global and custom banned password list. A password change request fails if there's a match in these banned password list. To protect on-premises Active Directory Domain Services (AD DS) environment, install and configure Azure AD Password Protection."
-  query         = query.azuread_user_risk_policy
-  documentation = file("./cis_v200/docs/cis_v200_1_1_10.md")
-
-  tags = merge(local.cis_v200_1_1_common_tags, {
-    cis_item_id           = "1.1.10"
-    cis_level             = "1"
-    cis_type              = "manual"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
 control "cis_v200_1_1_11" {
   title         = "1.1.11 Enable Conditional Access policies to block legacy authentication"
   description   = "Azure AD supports the most widely used authentication and authorization protocols including legacy authentication. This authentication pattern includes basic authentication, a widely used industry-standard method for collecting user name and password information."
@@ -209,21 +147,6 @@ control "cis_v200_1_1_11" {
     cis_item_id           = "1.1.11"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
-control "cis_v200_1_1_12" {
-  title         = "1.1.12 Ensure that password hash sync is enabled for hybrid deployments"
-  description   = "Password hash synchronization is one of the sign-in methods used to accomplish hybrid identity synchronization. Azure AD Connect synchronizes a hash, of the hash, of a user's password from an on-premises Active Directory instance to a cloud-based Azure AD instance."
-  query         = query.azuread_group_not_public
-  documentation = file("./cis_v200/docs/cis_v200_1_1_12.md")
-
-  tags = merge(local.cis_v200_1_1_common_tags, {
-    cis_item_id           = "1.1.12"
-    cis_level             = "1"
-    cis_type              = "manual"
     microsoft_365_license = "E3"
     service               = "Azure/ActiveDirectory"
   })
