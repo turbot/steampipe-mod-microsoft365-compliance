@@ -95,7 +95,7 @@ control "cis_v200_1_1_3" {
 control "cis_v200_1_1_4" {
   title         = "1.1.4 Ensure multifactor authentication is enabled for all users"
   description   = "Enable multifactor authentication for all users in the Microsoft 365 tenant. Users will be prompted to authenticate with a second factor upon logging in to Microsoft 365 services. The second factor is most commonly a text message to a registered mobile phone number where they type in an authorization code, or with a mobile application like Microsoft Authenticator."
-  query         = query.azuread_admin_user_mfa_enabled
+  query         = query.azuread_all_user_mfa_enabled
   documentation = file("./cis_v200/docs/cis_v200_1_1_4.md")
 
   tags = merge(local.cis_v200_1_1_common_tags, {
