@@ -33,7 +33,6 @@ benchmark "cis_v200_1_1" {
     control.cis_v200_1_1_3,
     control.cis_v200_1_1_4,
     control.cis_v200_1_1_8,
-    control.cis_v200_1_1_9,
     control.cis_v200_1_1_11,
     control.cis_v200_1_1_13,
     control.cis_v200_1_1_14,

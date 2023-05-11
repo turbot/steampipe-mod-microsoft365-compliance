@@ -31,11 +31,11 @@ select
   -- Required Columns
   t.tenant_id as resource,
   case
-    when (select count from policy_with_block where tenant_id = t.tenant_id) > 0  then 'ok'
+    when (select count(*) from policy_with_block where tenant_id = t.tenant_id) > 0 then 'ok'
     else 'alarm'
   end as status,
   case
-    when (select count from policy_with_block where tenant_id = t.tenant_id) > 0 then t.tenant_id || ' limited to administrative roles.'
+    when (select count(*) from policy_with_block where tenant_id = t.tenant_id) > 0 then t.tenant_id || ' limited to administrative roles.'
     else t.tenant_id || ' not limited to administrative roles.'
   end as reason,
   -- Additional Dimensions
