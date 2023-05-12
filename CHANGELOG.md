@@ -1,3 +1,10 @@
+## v0.5 [2023-05-12]
+
+_What's new?_
+
+- Added CIS v2.0.0 benchmark (`steampipe check benchmark.cis_v200`)
+- Added CIS v1.5.0 benchmark (`steampipe check benchmark.cis_v150`)
+
 ## v0.4 [2023-04-11]
 
 _Bug fixes_
@@ -24,4 +31,4 @@ _Bug fixes_
 
 _What's new?_
 
-Added: CIS v1.4.0 benchmark (`steampipe check benchmark.cis_v140`)
+- Added CIS v1.4.0 benchmark (`steampipe check benchmark.cis_v140`)
