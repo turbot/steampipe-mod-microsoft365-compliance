@@ -37,7 +37,7 @@ control "cis_v200_2_1" {
 
 control "cis_v200_2_2" {
   title         = "2.2 Ensure third party integrated applications are not allowed"
-  description   = "App registrations allows users to register custom-developed applications for use within the directory."
+  description   = "App registrations allow users to register custom-developed applications for use within the directory."
   query         = query.azuread_third_party_application_not_allowed
   documentation = file("./cis_v200/docs/cis_v200_2_2.md")
 

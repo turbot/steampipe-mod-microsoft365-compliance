@@ -1,6 +1,6 @@
 # Microsoft 365 Compliance Mod for Steampipe
 
-20+ checks covering industry defined security best practices for Microsoft 365. Includes full support for `CIS v1.4` compliance benchmarks across all of your Microsoft 365 tenants.
+20+ checks covering industry defined security best practices for Microsoft 365. Includes full support for `CIS v1.4`,`CIS v1.5` and `CIS v2.0` compliance benchmarks across all of your Microsoft 365 tenants.
 
 **Includes full support for the CIS v1.4.0 Microsoft 365 benchmarks**.
 
@@ -14,6 +14,8 @@ Includes support for:
 
 * [Microsoft 365 CIS v1.4.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v140)
 * [Microsoft 365 CIS v1.5.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v150) 🚀 New!
+* [Microsoft 365 CIS v2.0.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v200) 🚀 New!
+
 
 ## Getting started
 
