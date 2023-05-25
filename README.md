@@ -90,7 +90,7 @@ The benchmark queries use common properties (like `tenant_id` and `connection_na
 - Pass in a value on the command line:
 
   ```shell
-  steampipe check benchmark.cis_v140_1_1 --var 'common_dimensions=["tenant_id", "connection_name"]'
+  steampipe check benchmark.cis_v140_1_1 --var 'common_dimensions=["connection_name", "tenant_id"]'
   ```
 
   ```shell
@@ -100,7 +100,7 @@ The benchmark queries use common properties (like `tenant_id` and `connection_na
 - Set an environment variable:
 
   ```shell
-  SP_VAR_common_dimensions='["tenant_id", "connection_name"]' steampipe check control.cis_v140_1_1
+  SP_VAR_common_dimensions='["connection_name", "tenant_id"]' steampipe check control.cis_v140_1_1
   ```
 
   ```shell
