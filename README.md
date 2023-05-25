@@ -85,7 +85,7 @@ This mod uses the credentials configured in the Steampipe [Azure AD](https://hub
 
 No extra configuration is required.
 
-### Common Dimensions
+### Common and Tag Dimensions
 
 The benchmark queries use common properties (like `tenant_id` and `connection_name`) that are defined in the form of a default list of strings in the `mod.sp` file. These properties can be overwritten in several ways:
 
@@ -96,10 +96,18 @@ The benchmark queries use common properties (like `tenant_id` and `connection_na
   steampipe check benchmark.cis_v140_1_1 --var 'common_dimensions=["tenant_id", "connection_name"]'
   ```
 
+  ```shell
+  steampipe check benchmark.cis_v140_1_1_12 --var 'tag_dimensions=["Department", "Environment"]'
+  ```
+
 - Set an environment variable:
 
   ```shell
   SP_VAR_common_dimensions='["tenant_id", "connection_name"]' steampipe check control.cis_v140_1_1
+  ```
+
+  ```shell
+  SP_VAR_tag_dimensions='["Department", "Environment"]' steampipe check control.cis_v140_1_1_12
   ```
 
 ## Contributing
