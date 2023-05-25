@@ -10,6 +10,7 @@ query "azuread_group_not_public" {
         when visibility = 'Public' then title || ' is public.'
         else title || ' is not public.'
       end reason
+      ${local.tag_dimensions_sql}
       ${local.common_dimensions_sql}
     from
       azuread_group;
