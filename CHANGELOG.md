@@ -6,6 +6,7 @@ _Dependencies_
 
 _What's new?_
 
+- Added `tags` as dimensions to group and filter findings. (see [var.common_dimensions](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/variables)) ([#40](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/40))
 - Added `connection_name` in the common dimensions to group and filter findings. (see [var.common_dimensions](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/variables)) ([#40](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/40))
 
 _Bug fixes_
