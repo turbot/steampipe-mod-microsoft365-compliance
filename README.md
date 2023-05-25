@@ -95,7 +95,7 @@ The benchmark queries use common properties (like `tenant_id` and `connection_na
   ```
 
   ```shell
-  steampipe check benchmark.cis_v140_1_1_12 --var 'tag_dimensions=["Department", "Environment"]'
+  steampipe check benchmark.cis_v140_1_1 --var 'tag_dimensions=["Department", "Environment"]'
   ```
 
 - Set an environment variable:
