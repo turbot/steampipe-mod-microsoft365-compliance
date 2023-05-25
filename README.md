@@ -50,11 +50,10 @@ steampipe dashboard
 ```
 
 By default, the dashboard interface will then be launched in a new browser
-window at https://localhost:9194. From here, you can run benchmarks by
+window at http://localhost:9194. From here, you can run benchmarks by
 selecting one or searching for a specific one.
 
-Instead of running benchmarks in a dashboard, you can also run them within your
-terminal with the `steampipe check` command:
+Instead of running benchmarks in a dashboard, you can also run them within your terminal with the `steampipe check` command:
 
 Run all benchmarks:
 
@@ -84,6 +83,31 @@ This mod uses the credentials configured in the Steampipe [Azure AD](https://hub
 ### Configuration
 
 No extra configuration is required.
+
+### Common and Tag Dimensions
+
+The benchmark queries use common properties (like `connection_name` and `tenant_id`) and tags that are defined in the form of a default list of strings in the `mod.sp` file. These properties can be overwritten in several ways:
+
+- Copy and rename the `steampipe.spvars.example` file to `steampipe.spvars`, and then modify the variable values inside that file
+- Pass in a value on the command line:
+
+  ```shell
+  steampipe check benchmark.cis_v140_1_1 --var 'common_dimensions=["connection_name", "tenant_id"]'
+  ```
+
+  ```shell
+  steampipe check benchmark.cis_v140_1_1 --var 'tag_dimensions=["Department", "Environment"]'
+  ```
+
+- Set an environment variable:
+
+  ```shell
+  SP_VAR_common_dimensions='["connection_name", "tenant_id"]' steampipe check control.cis_v140_1_1
+  ```
+
+  ```shell
+  SP_VAR_tag_dimensions='["Department", "Environment"]' steampipe check control.cis_v140_1_1_12
+  ```
 
 ## Contributing
 

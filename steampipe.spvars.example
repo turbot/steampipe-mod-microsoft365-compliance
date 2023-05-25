@@ -1,0 +1,4 @@
+# Dimensions
+# Available dimensions: "connection_name", "tenant_id"
+common_dimensions = ["tenant_id"]
+tag_dimensions    = []
