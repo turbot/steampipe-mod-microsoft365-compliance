@@ -1,3 +1,9 @@
+## v0.7 [2023-06-07]
+
+_Bug fixes_
+
+- Fixed the broken query link for [`cis_v200_1_1_21`](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/control.cis_v200_1_1_21?context=benchmark.cis_v200/benchmark.cis_v200_1/benchmark.cis_v200_1_1) control on the hub. ([#49](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/49))
+
 ## v0.6 [2023-05-25]
 
 _Dependencies_
