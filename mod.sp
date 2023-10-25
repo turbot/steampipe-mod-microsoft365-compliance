@@ -64,10 +64,10 @@ mod "microsoft365_compliance" {
 
   require {
     plugin "azuread" {
-      version = "0.10.0"
+      min_version = "0.10.0"
     }
     plugin "microsoft365" {
-      version = "0.0.1"
+      min_version = "0.0.1"
     }
   }
 }
