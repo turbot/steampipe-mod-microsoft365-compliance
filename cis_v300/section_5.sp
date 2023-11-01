@@ -329,7 +329,7 @@ benchmark "cis_v300_5_2_4" {
 control "cis_v300_5_2_4_1" {
   title         = "5.2.4.1 Ensure 'Self service password reset enabled' is set to 'All'"
   description   = "Enabling self-service password reset allows users to reset their own passwords in Azure AD. When users sign in to Microsoft 365, they will be prompted to enter additional contact information that will help them reset their password in the future. If combined registration is enabled additional information, outside of multi-factor, will not be needed."
-  query         = query.azuread_microsoft_azure_management_limited_to_administrative_roles
+  query         = query.azuread_user_sspr_enabled
   documentation = file("./cis_v300/docs/cis_v300_5_2_4_1.md")
 
   tags = merge(local.cis_v300_5_2_4_common_tags, {
@@ -356,7 +356,7 @@ benchmark "cis_v300_5_2_6" {
 control "cis_v300_5_2_6_1" {
   title         = "5.2.6.1 Ensure the Azure AD 'Risky sign-ins' report is reviewed at least weekly"
   description   = "This report contains records of accounts that have had activity that could indicate they are compromised, such as accounts that have: successfully signed in after multiple failures, which is an indication that the accounts have cracked passwords, signed in to tenant from a client IP address that has been recognized by Microsoft as an anonymous proxy IP address (such as a TOR network), successful sign-ins from users where two sign-ins appeared to originate from different regions and the time between sign-ins makes it impossible for the user to have traveled between those regions."
-  query         = query.azuread_microsoft_azure_management_limited_to_administrative_roles
+  query         = query.azuread_risky_sign_ins_report
   documentation = file("./cis_v300/docs/cis_v300_5_2_6_1.md")
 
   tags = merge(local.cis_v300_5_2_6_common_tags, {
