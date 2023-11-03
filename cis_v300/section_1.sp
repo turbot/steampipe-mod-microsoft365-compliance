@@ -39,7 +39,7 @@ benchmark "cis_v300_1" {
 }
 
 benchmark "cis_v300_1_1" {
-  title         = "1.1 Users"
+  title = "1.1 Users"
   children = [
     control.cis_v300_1_1_3,
     control.cis_v300_1_1_4
@@ -82,7 +82,7 @@ control "cis_v300_1_1_4" {
 }
 
 benchmark "cis_v300_1_2" {
-  title         = "1.2 Teams & groups"
+  title = "1.2 Teams & groups"
   children = [
     control.cis_v300_1_2_1
   ]
@@ -109,7 +109,7 @@ control "cis_v300_1_2_1" {
 }
 
 benchmark "cis_v300_1_3" {
-  title         = "1.3 Settings"
+  title = "1.3 Settings"
   children = [
     control.cis_v300_1_3_1,
     control.cis_v300_1_3_3

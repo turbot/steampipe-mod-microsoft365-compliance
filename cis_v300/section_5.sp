@@ -67,7 +67,7 @@ benchmark "cis_v300_5" {
 }
 
 benchmark "cis_v300_5_1" {
-  title         = "5.1 Identity"
+  title = "5.1 Identity"
   children = [
     benchmark.cis_v300_5_1_1,
     benchmark.cis_v300_5_1_2,
@@ -81,7 +81,7 @@ benchmark "cis_v300_5_1" {
 }
 
 benchmark "cis_v300_5_1_1" {
-  title         = "5.1.1 Overview"
+  title = "5.1.1 Overview"
   children = [
     control.cis_v300_5_1_1_1
   ]
@@ -108,7 +108,7 @@ control "cis_v300_5_1_1_1" {
 }
 
 benchmark "cis_v300_5_1_2" {
-  title         = "5.1.2 Users"
+  title = "5.1.2 Users"
   children = [
     control.cis_v300_5_1_2_2
   ]
@@ -135,7 +135,7 @@ control "cis_v300_5_1_2_2" {
 }
 
 benchmark "cis_v300_5_1_5" {
-  title         = "5.1.5 Applications"
+  title = "5.1.5 Applications"
   children = [
     control.cis_v300_5_1_5_2,
     control.cis_v300_5_1_5_3
@@ -148,7 +148,7 @@ benchmark "cis_v300_5_1_5" {
 }
 
 control "cis_v300_5_1_5_2" {
-  title         = "5.1.5.2 Ensure user consent to apps accessing company data on their behalf is not allowed "
+  title         = "5.1.5.2 Ensure user consent to apps accessing company data on their behalf is not allowed"
   description   = "Control when end users and group owners are allowed to grant consent to applications, and when they will be required to request administrator review and approval. Allowing users to grant apps access to data helps them acquire useful applications and be productive but can represent a risk in some situations if it's not monitored and controlled carefully."
   query         = query.azuread_authorization_policy_accessing_company_data_not_allowed
   documentation = file("./cis_v300/docs/cis_v300_5_1_5_2.md")
@@ -178,7 +178,7 @@ control "cis_v300_5_1_5_3" {
 }
 
 benchmark "cis_v300_5_2" {
-  title         = "5.2 Protection"
+  title = "5.2 Protection"
   children = [
     benchmark.cis_v300_5_2_2,
     benchmark.cis_v300_5_2_4,
@@ -192,7 +192,7 @@ benchmark "cis_v300_5_2" {
 }
 
 benchmark "cis_v300_5_2_2" {
-  title         = "5.2.2 Conditional Access"
+  title = "5.2.2 Conditional Access"
   children = [
     control.cis_v300_5_2_2_1,
     control.cis_v300_5_2_2_2,
@@ -315,7 +315,7 @@ control "cis_v300_5_2_2_8" {
 }
 
 benchmark "cis_v300_5_2_4" {
-  title         = "5.2.4 Password reset"
+  title = "5.2.4 Password reset"
   children = [
     control.cis_v300_5_2_4_1
   ]
@@ -342,7 +342,7 @@ control "cis_v300_5_2_4_1" {
 }
 
 benchmark "cis_v300_5_2_6" {
-  title         = "5.2.6 Risky activities"
+  title = "5.2.6 Risky activities"
   children = [
     control.cis_v300_5_2_6_1
   ]

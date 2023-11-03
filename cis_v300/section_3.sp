@@ -12,7 +12,7 @@ locals {
 
 benchmark "cis_v300_3" {
   title         = "3 Microsoft Purview"
-  documentation = file("./cis_v300/docs/cis_v200_3.md")
+  documentation = file("./cis_v300/docs/cis_v300_3.md")
   children = [
     benchmark.cis_v300_3_1
   ]
@@ -24,7 +24,7 @@ benchmark "cis_v300_3" {
 }
 
 benchmark "cis_v300_3_1" {
-  title         = "3.1 Audit"
+  title = "3.1 Audit"
   children = [
     control.cis_v300_3_1_1
   ]

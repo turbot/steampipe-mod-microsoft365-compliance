@@ -24,7 +24,7 @@ benchmark "cis_v300_2" {
 }
 
 benchmark "cis_v300_2_3" {
-  title         = "2.3 Audit"
+  title = "2.3 Audit"
   children = [
     control.cis_v300_2_3_1
   ]
