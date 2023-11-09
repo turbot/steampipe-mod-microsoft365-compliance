@@ -1,3 +1,9 @@
+## v0.8 [2023-11-09]
+
+_Breaking changes_
+
+- Updated the plugin dependency section of the mod to use `min_version` instead of `version`. ([#55](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/55))
+
 ## v0.7 [2023-06-07]
 
 _Bug fixes_
