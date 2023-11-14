@@ -1,3 +1,9 @@
+## v0.9 [2023-11-14]
+
+_What's new?_
+
+- Added CIS v3.0.0 benchmark (`steampipe check benchmark.cis_v300`). ([#57](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/57))
+
 ## v0.8 [2023-11-09]
 
 _Breaking changes_

@@ -3,7 +3,10 @@ query "azuread_account_provisioning_activity_report_reviewed" {
     select
       id as resource,
       'info' as status,
-      initiated_by -> 'user' ->> 'userPrincipalName' || ' was added on ' || date_trunc('day', activity_Date_Time)::date || '.' as reason
+      case
+        when (initiated_by -> 'user') is not null then initiated_by -> 'user' ->> 'userPrincipalName' || ' was added on ' || date_trunc('day', activity_Date_Time)::date
+        when (initiated_by -> 'app') is not null then initiated_by -> 'app' ->> 'displayName' || ' was added on ' || date_trunc('day', activity_Date_Time)::date || '.'
+      end as reason
       ${local.common_dimensions_sql}
     from
       azuread_directory_audit_report
