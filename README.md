@@ -87,7 +87,7 @@ Different output formats are also available, for more information please see
 
 ### Common and Tag Dimensions
 
-The benchmark queries use common properties (like `compartment`, `compartment_id`, `connection_name`, `region`, `tenant` and `tenant_id`) and tags that are defined in the form of a default list of strings in the `variables.sp` file. These properties can be overwritten in several ways:
+The benchmark queries use common properties (like `connection_name` and `tenant_id`) and tags that are defined in the form of a default list of strings in the `variables.sp` file. These properties can be overwritten in several ways:
 
 It's easiest to setup your vars file, starting with the sample:
 
@@ -99,13 +99,13 @@ vi steampipe.spvars
 Alternatively you can pass variables on the command line:
 
 ```sh
-powerpipe benchmark run microsoft365_compliance.benchmark.cis_v300_1_1 --var 'common_dimensions=["connection_name", "tenant"]'
+powerpipe benchmark run microsoft365_compliance.benchmark.cis_v300_1_1 --var 'common_dimensions=["connection_name", "tenant_id"]'
 ```
 
 Or through environment variables:
 
 ```sh
-export PP_VAR_common_dimensions='["connection_name", "tenant"]'
+export PP_VAR_common_dimensions='["connection_name", "tenant_id"]'
 export PP_VAR_tag_dimensions='["Department", "Environment"]'
 powerpipe benchmark run microsoft365_compliance.benchmark.cis_v300_1_1
 ```
