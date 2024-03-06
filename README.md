@@ -38,7 +38,7 @@ steampipe plugin install microsoft365
 steampipe plugin install azuread
 ```
 
-Steampipe will automatically use your default Microsoft 365 credentials. Optionally, you can [setup multiple accounts](https://hub.steampipe.io/plugins/turbot/microsoft365#multi-account-connections) or [customize Microsoft 365 credentials](https://hub.steampipe.io/plugins/turbot/microsoft365#configuring-microsoft365-credentials) or [customize Azure AD credentials](https://hub.steampipe.io/plugins/turbot/azuread#configuring-azuread-credentials).
+Steampipe will automatically use your default Microsoft 365 and Azuread credentials. Optionally, you can [setup multiple tenants](https://hub.steampipe.io/plugins/turbot/azuread#multi-tenant-connections) for Azuread or [customize Azure AD credentials](https://hub.steampipe.io/plugins/turbot/azuread#configuring-azure-active-directory-credentials) or [customize Microsoft 365 credentials](https://hub.steampipe.io/plugins/turbot/microsoft365#configuring-microsoft-365-credentials).
 
 Finally, install the mod:
 
@@ -99,13 +99,13 @@ vi steampipe.spvars
 Alternatively you can pass variables on the command line:
 
 ```sh
-powerpipe benchmark run microsoft365_compliance.benchmark.cis_v300_1_1 --var 'common_dimensions=["connection_name", "region", "tenant"]'
+powerpipe benchmark run microsoft365_compliance.benchmark.cis_v300_1_1 --var 'common_dimensions=["connection_name", "tenant"]'
 ```
 
 Or through environment variables:
 
 ```sh
-export PP_VAR_common_dimensions='["connection_name", "region", "tenant"]'
+export PP_VAR_common_dimensions='["connection_name", "tenant"]'
 export PP_VAR_tag_dimensions='["Department", "Environment"]'
 powerpipe benchmark run microsoft365_compliance.benchmark.cis_v300_1_1
 ```

@@ -9,7 +9,7 @@ mod "microsoft365_compliance" {
 
   opengraph {
     title       = "Powerpipe Mod for Microsoft 365 Compliance"
-    description = "Run individual configuration, compliance and security controls or full CIS compliance benchmarks across all of your Microsoft 365 tenants using Powerpipe and Steampipe.."
+    description = "Run individual configuration, compliance and security controls or full CIS compliance benchmarks across all of your Microsoft 365 tenants using Powerpipe and Steampipe."
     image       = "/images/mods/turbot/mircosoft365-compliance-social-graphic.png"
   }
 
