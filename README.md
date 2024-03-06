@@ -1,124 +1,126 @@
-# Microsoft 365 Compliance Mod for Steampipe
+# Microsoft 365 Compliance Mod for Powerpipe
 
-20+ checks covering industry defined security best practices for Microsoft 365. Includes full support for `CIS v1.4`,`CIS v1.5` and `CIS v2.0` compliance benchmarks across all of your Microsoft 365 tenants.
+> [!IMPORTANT]
+> [Powerpipe](https://powerpipe.io) is now the preferred way to run this mod! [Migrating from Steampipe →](https://powerpipe.io/blog/migrating-from-steampipe)
+>
+> All v0.x versions of this mod will work in both Steampipe and Powerpipe, but v1.0.0 onwards will be in Powerpipe format only.
 
-**Includes full support for the CIS v1.4.0 Microsoft 365 benchmarks**.
+20+ checks covering industry defined security best practices for Microsoft 365. Includes full support for `CIS v1.4`,`CIS v1.5`,`CIS v2.0` and `CIS v3.0.0` compliance benchmarks across all of your Microsoft 365 tenants.
+
+**Includes full support for the CIS v3.0.0 Microsoft 365 benchmarks**.
 
 Run checks in a dashboard:
 ![image](https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_dashboard.png)
 
 Or in a terminal:
-![image](https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_cis_v140_terminal.png)
+![image](https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_cis_v300_terminal.png)
 
-Includes support for:
+## Documentation
 
-* [Microsoft 365 CIS v1.4.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v140)
-* [Microsoft 365 CIS v1.5.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v150)
-* [Microsoft 365 CIS v2.0.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v200)
-* [Microsoft 365 CIS v3.0.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v300) 🚀 New!
+- **[Benchmarks and controls →](https://hub.powerpipe.io/mods/turbot/microsoft365_compliance/controls)**
+- **[Named queries →](https://hub.powerpipe.io/mods/turbot/microsoft365_compliance/queries)**
 
-## Getting started
+## Getting Started
 
 ### Installation
 
-Download and install Steampipe (https://steampipe.io/downloads). Or use Brew:
+Install Powerpipe (https://powerpipe.io/downloads), or use Brew:
 
 ```sh
-brew tap turbot/tap
-brew install steampipe
+brew install turbot/tap/powerpipe
 ```
 
-Install the Azure Active Directory and the Microsoft 365 plugins with [Steampipe](https://steampipe.io):
+This mod also requires [Steampipe](https://steampipe.io) with the [Microsoft 365 plugin](https://hub.steampipe.io/plugins/turbot/microsoft365) and [Azuread plugin](https://hub.steampipe.io/plugins/turbot/azuread) as the data source. Install Steampipe (https://steampipe.io/downloads), or use Brew:
 
 ```sh
-steampipe plugin install azuread
+brew install turbot/tap/steampipe
 steampipe plugin install microsoft365
+steampipe plugin install azuread
 ```
 
-Clone:
+Steampipe will automatically use your default Microsoft 365 and Azuread credentials. Optionally, you can [setup multiple tenants](https://hub.steampipe.io/plugins/turbot/azuread#multi-tenant-connections) for Azuread or [customize Azure AD credentials](https://hub.steampipe.io/plugins/turbot/azuread#configuring-azure-active-directory-credentials) or [customize Microsoft 365 credentials](https://hub.steampipe.io/plugins/turbot/microsoft365#configuring-microsoft-365-credentials).
+
+Finally, install the mod:
 
 ```sh
-git clone https://github.com/turbot/steampipe-mod-microsoft365-compliance.git
-cd steampipe-mod-microsoft365-compliance/
+mkdir dashboards
+cd dashboards
+powerpipe mod init
+powerpipe mod install github.com/turbot/steampipe-mod-office365-compliance
 ```
 
-### Usage
+### Browsing Dashboards
 
-Start your dashboard server to get started:
+Start Steampipe as the data source:
 
 ```sh
-steampipe dashboard
+steampipe service start
 ```
 
-By default, the dashboard interface will then be launched in a new browser
-window at http://localhost:9194. From here, you can run benchmarks by
-selecting one or searching for a specific one.
-
-Instead of running benchmarks in a dashboard, you can also run them within your terminal with the `steampipe check` command:
-
-Run all benchmarks:
+Start the dashboard server:
 
 ```sh
-steampipe check all
+powerpipe server
 ```
 
-Run a single benchmark:
+Browse and view your dashboards at **http://localhost:9033**.
+
+### Running Checks in Your Terminal
+
+Instead of running benchmarks in a dashboard, you can also run them within your
+terminal with the `powerpipe benchmark` command:
+
+List available benchmarks:
 
 ```sh
-steampipe check benchmark.cis_v140_1
+powerpipe benchmark list
 ```
 
-Run a specific control:
+Run a benchmark:
 
 ```sh
-steampipe check control.cis_v140_1_1_3
+powerpipe benchmark run microsoft365_compliance.benchmark.cis_v300_1_1
 ```
 
 Different output formats are also available, for more information please see
-[Output Formats](https://steampipe.io/docs/reference/cli/check#output-formats).
-
-### Credentials
-
-This mod uses the credentials configured in the Steampipe [Azure AD](https://hub.steampipe.io/plugins/turbot/azuread) and [Microsoft 365](https://hub.steampipe.io/plugins/turbot/microsoft365) plugins.
-
-### Configuration
-
-No extra configuration is required.
+[Output Formats](https://powerpipe.io/docs/reference/cli/benchmark#output-formats).
 
 ### Common and Tag Dimensions
 
-The benchmark queries use common properties (like `connection_name` and `tenant_id`) and tags that are defined in the form of a default list of strings in the `mod.sp` file. These properties can be overwritten in several ways:
+The benchmark queries use common properties (like `connection_name` and `tenant_id`) and tags that are defined in the form of a default list of strings in the `variables.sp` file. These properties can be overwritten in several ways:
 
-- Copy and rename the `steampipe.spvars.example` file to `steampipe.spvars`, and then modify the variable values inside that file
-- Pass in a value on the command line:
+It's easiest to setup your vars file, starting with the sample:
 
-  ```shell
-  steampipe check benchmark.cis_v140_1_1 --var 'common_dimensions=["connection_name", "tenant_id"]'
-  ```
+```sh
+cp steampipe.spvars.example steampipe.spvars
+vi steampipe.spvars
+```
 
-  ```shell
-  steampipe check benchmark.cis_v140_1_1 --var 'tag_dimensions=["Department", "Environment"]'
-  ```
+Alternatively you can pass variables on the command line:
 
-- Set an environment variable:
+```sh
+powerpipe benchmark run microsoft365_compliance.benchmark.cis_v300_1_1 --var 'common_dimensions=["connection_name", "tenant_id"]'
+```
 
-  ```shell
-  SP_VAR_common_dimensions='["connection_name", "tenant_id"]' steampipe check control.cis_v140_1_1
-  ```
+Or through environment variables:
 
-  ```shell
-  SP_VAR_tag_dimensions='["Department", "Environment"]' steampipe check control.cis_v140_1_1_12
-  ```
+```sh
+export PP_VAR_common_dimensions='["connection_name", "tenant_id"]'
+export PP_VAR_tag_dimensions='["Department", "Environment"]'
+powerpipe benchmark run microsoft365_compliance.benchmark.cis_v300_1_1
+```
 
-## Contributing
+## Open Source & Contributing
 
-If you have an idea for additional compliance controls, or just want to help maintain and extend this mod ([or others](https://github.com/topics/steampipe-mod)) we would love you to join the community and start contributing. (Even if you just want to help with the docs.)
+This repository is published under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0). Please see our [code of conduct](https://github.com/turbot/.github/blob/main/CODE_OF_CONDUCT.md). We look forward to collaborating with you!
 
-- **[Join #steampipe on Slack →](https://turbot.com/community/join)** and hang out with other Mod developers.
+[Steampipe](https://steampipe.io) and [Powerpipe](https://powerpipe.io) are products produced from this open source software, exclusively by [Turbot HQ, Inc](https://turbot.com). They are distributed under our commercial terms. Others are allowed to make their own distribution of the software, but cannot use any of the Turbot trademarks, cloud services, etc. You can learn more in our [Open Source FAQ](https://turbot.com/open-source).
 
-Please see the [contribution guidelines](https://github.com/turbot/steampipe/blob/main/CONTRIBUTING.md) and our [code of conduct](https://github.com/turbot/steampipe/blob/main/CODE_OF_CONDUCT.md). All contributions are subject to the [Apache 2.0 open source license](https://github.com/turbot/steampipe-mod-microsoft365-compliance/blob/main/LICENSE).
+## Get Involved
 
-Want to help but not sure where to start? Pick up one of the `help wanted` issues:
+**[Join #powerpipe on Slack →](https://turbot.com/community/join)**
 
-- [Steampipe](https://github.com/turbot/steampipe/labels/help%20wanted)
+Want to help but don't know where to start? Pick up one of the `help wanted` issues:
+
+- [Powerpipe](https://github.com/turbot/powerpipe/labels/help%20wanted)
 - [Microsoft 365 Compliance Mod](https://github.com/turbot/steampipe-mod-microsoft365-compliance/labels/help%20wanted)
