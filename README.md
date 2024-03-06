@@ -1,4 +1,4 @@
-# Microsoft 365 Compliance Mod for Steampipe
+# Microsoft 365 Compliance Mod for Powerpipe
 
 > [!IMPORTANT]  
 > [Powerpipe](https://powerpipe.io) is now the preferred way to run this mod! [Migrating from Steampipe →](https://powerpipe.io/blog/migrating-from-steampipe)
