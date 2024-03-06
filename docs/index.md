@@ -6,9 +6,9 @@ repository: "https://github.com/turbot/steampipe-mod-microsoft365-compliance/"
 
 Run individual configuration, compliance and security controls or full `CIS` compliance benchmarks across all your Microsoft 365 tenants.
 
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/add-new-checks/docs/microsoft365_compliance_dashboard.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/add-new-checks/docs/microsoft365_compliance_cis_v300_dashboard.png" width="50%" type="thumbnail"/>
-<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/add-new-checks/docs/microsoft365_compliance_cis_v300_terminal.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_dashboard.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_cis_v300_dashboard.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_cis_v300_terminal.png" width="50%" type="thumbnail"/>
 
 ## Documentation
 

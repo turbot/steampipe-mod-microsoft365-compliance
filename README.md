@@ -10,10 +10,10 @@
 **Includes full support for the CIS v1.4.0 Microsoft 365 benchmarks**.
 
 Run checks in a dashboard:
-![image](https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/add-new-checks/docs/microsoft365_compliance_dashboard.png)
+![image](https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_dashboard.png)
 
 Or in a terminal:
-![image](https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/add-new-checks/docs/microsoft365_compliance_cis_v300_terminal.png)
+![image](https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_cis_v300_terminal.png)
 
 Includes support for:
 
