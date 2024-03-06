@@ -1,5 +1,5 @@
 mod "microsoft365_compliance" {
-  # hub metadata
+  # Hub metadata
   title         = "Microsoft 365 Compliance"
   description   = "Run individual configuration, compliance and security controls or full CIS compliance benchmarks across all of your Microsoft 365 tenants using Powerpipe and Steampipe."
   color         = "#00A4EF"

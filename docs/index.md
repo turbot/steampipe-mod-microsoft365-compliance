@@ -8,8 +8,8 @@ Run individual configuration, compliance and security controls or full `CIS` com
 
 ## Documentation
 
-- **[Benchmarks and controls →](https://hub.powerpipe.io/mods/turbot/aws_compliance/controls)**
-- **[Named queries →](https://hub.powerpipe.io/mods/turbot/aws_compliance/queries)**
+- **[Benchmarks and controls →](https://hub.powerpipe.io/mods/turbot/microsoft365_compliance/controls)**
+- **[Named queries →](https://hub.powerpipe.io/mods/turbot/microsoft365_compliance/queries)**
 
 ## Getting Started
 
@@ -26,6 +26,7 @@ This mod also requires [Steampipe](https://steampipe.io) with the [Microsoft 365
 ```sh
 brew install turbot/tap/steampipe
 steampipe plugin install microsoft365
+steampipe plugin install azuread
 ```
 
 Steampipe will automatically use your default Microsoft 365 credentials. Optionally, you can [setup multiple accounts](https://hub.steampipe.io/plugins/turbot/microsoft365#multi-account-connections) or [customize Microsoft 365 credentials](https://hub.steampipe.io/plugins/turbot/microsoft365#configuring-microsoft365-credentials) or [customize Azure AD credentials](https://hub.steampipe.io/plugins/turbot/azuread#configuring-azuread-credentials).
@@ -36,7 +37,7 @@ Finally, install the mod:
 mkdir dashboards
 cd dashboards
 powerpipe mod init
-powerpipe mod install github.com/turbot/powerpipe-mod-office365-compliance
+powerpipe mod install github.com/turbot/steampipe-mod-office365-compliance
 ```
 
 ### Browsing Dashboards
@@ -82,8 +83,8 @@ The benchmark queries use common properties (like `compartment`, `compartment_id
 It's easiest to setup your vars file, starting with the sample:
 
 ```sh
-cp powerpipe.ppvar.example powerpipe.ppvars
-vi powerpipe.ppvars
+cp steampipe.spvars.example steampipe.spvars
+vi steampipe.spvars
 ```
 
 Alternatively you can pass variables on the command line:

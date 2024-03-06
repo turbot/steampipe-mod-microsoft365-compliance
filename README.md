@@ -1,13 +1,13 @@
 # Microsoft 365 Compliance Mod for Powerpipe
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > [Powerpipe](https://powerpipe.io) is now the preferred way to run this mod! [Migrating from Steampipe →](https://powerpipe.io/blog/migrating-from-steampipe)
 >
 > All v0.x versions of this mod will work in both Steampipe and Powerpipe, but v1.0.0 onwards will be in Powerpipe format only.
 
 20+ checks covering industry defined security best practices for Microsoft 365. Includes full support for `CIS v1.4`,`CIS v1.5`,`CIS v2.0` and `CIS v3.0.0` compliance benchmarks across all of your Microsoft 365 tenants.
 
-**Includes full support for the CIS v1.4.0 Microsoft 365 benchmarks**.
+**Includes full support for the CIS v3.0.0 Microsoft 365 benchmarks**.
 
 Run checks in a dashboard:
 ![image](https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_dashboard.png)
@@ -15,17 +15,10 @@ Run checks in a dashboard:
 Or in a terminal:
 ![image](https://raw.githubusercontent.com/turbot/steampipe-mod-microsoft365-compliance/main/docs/microsoft365_compliance_cis_v300_terminal.png)
 
-Includes support for:
-
-* [Microsoft 365 CIS v1.4.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v140)
-* [Microsoft 365 CIS v1.5.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v150)
-* [Microsoft 365 CIS v2.0.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v200)
-* [Microsoft 365 CIS v3.0.0](https://hub.steampipe.io/mods/turbot/microsoft365_compliance/controls/benchmark.cis_v300) 🚀 New!
-
 ## Documentation
 
-- **[Benchmarks and controls →](https://hub.powerpipe.io/mods/turbot/aws_compliance/controls)**
-- **[Named queries →](https://hub.powerpipe.io/mods/turbot/aws_compliance/queries)**
+- **[Benchmarks and controls →](https://hub.powerpipe.io/mods/turbot/microsoft365_compliance/controls)**
+- **[Named queries →](https://hub.powerpipe.io/mods/turbot/microsoft365_compliance/queries)**
 
 ## Getting Started
 
@@ -45,7 +38,7 @@ steampipe plugin install microsoft365
 steampipe plugin install azuread
 ```
 
-Steampipe will automatically use your default Microsoft 365 credentials. Optionally, you can [setup multiple accounts](https://hub.steampipe.io/plugins/turbot/microsoft365#multi-account-connections) or [customize Microsoft 365 credentials](https://hub.steampipe.io/plugins/turbot/microsoft365#configuring-microsoft365-credentials) or [customize Azure AD credentials](https://hub.steampipe.io/plugins/turbot/microsoft365#configuring-microsoft365-credentials).
+Steampipe will automatically use your default Microsoft 365 credentials. Optionally, you can [setup multiple accounts](https://hub.steampipe.io/plugins/turbot/microsoft365#multi-account-connections) or [customize Microsoft 365 credentials](https://hub.steampipe.io/plugins/turbot/microsoft365#configuring-microsoft365-credentials) or [customize Azure AD credentials](https://hub.steampipe.io/plugins/turbot/azuread#configuring-azuread-credentials).
 
 Finally, install the mod:
 
@@ -53,7 +46,7 @@ Finally, install the mod:
 mkdir dashboards
 cd dashboards
 powerpipe mod init
-powerpipe mod install github.com/turbot/powerpipe-mod-office365-compliance
+powerpipe mod install github.com/turbot/steampipe-mod-office365-compliance
 ```
 
 ### Browsing Dashboards
@@ -99,8 +92,8 @@ The benchmark queries use common properties (like `compartment`, `compartment_id
 It's easiest to setup your vars file, starting with the sample:
 
 ```sh
-cp powerpipe.ppvar.example powerpipe.ppvars
-vi powerpipe.ppvars
+cp steampipe.spvars.example steampipe.spvars
+vi steampipe.spvars
 ```
 
 Alternatively you can pass variables on the command line:
