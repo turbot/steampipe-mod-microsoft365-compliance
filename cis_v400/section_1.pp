@@ -41,8 +41,7 @@ benchmark "cis_v400_1" {
 benchmark "cis_v400_1_1" {
   title = "1.1 Users"
   children = [
-    control.cis_v400_1_1_3,
-    control.cis_v400_1_1_4
+    control.cis_v400_1_1_3
   ]
 
   tags = merge(local.cis_v400_1_1_common_tags, {
@@ -61,21 +60,6 @@ control "cis_v400_1_1_3" {
     cis_item_id           = "1.1.3"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
-    service               = "Azure/ActiveDirectory"
-  })
-}
-
-control "cis_v400_1_1_4" {
-  title         = "1.1.4 Ensure Guest Users are reviewed at least biweekly"
-  description   = "Guest users can be set up for those users not in the organization to still be granted access to resources. It is important to maintain visibility for what guest users are established in the tenant. Ensure Guest Users are reviewed no less frequently than biweekly."
-  query         = query.azuread_guest_user_info
-  documentation = file("./cis_v400/docs/cis_v400_1_1_4.md")
-
-  tags = merge(local.cis_v400_1_1_common_tags, {
-    cis_item_id           = "1.1.4"
-    cis_level             = "1"
-    cis_type              = "manual"
     microsoft_365_license = "E3"
     service               = "Azure/ActiveDirectory"
   })
