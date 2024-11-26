@@ -93,7 +93,7 @@ benchmark "cis_v400_5_1_1" {
 }
 
 control "cis_v400_5_1_1_1" {
-  title         = "5.1.1.1 Ensure Security Defaults is disabled on Azure Active Directory"
+  title         = "5.1.1.1 Ensure Security Defaults is disabled"
   description   = "Security defaults in Azure Active Directory (Azure AD) make it easier to be secure and help protect the organization. Security defaults contain preconfigured security settings for common attacks. By default, Microsoft enables security defaults. The goal is to ensure that all organizations have a basic level of security enabled. The security default setting is manipulated in the Azure Portal."
   query         = query.azuread_security_default_disabled
   documentation = file("./cis_v400/docs/cis_v400_5_1_1_1.md")
@@ -254,8 +254,8 @@ control "cis_v400_5_2_2_4" {
 }
 
 control "cis_v400_5_2_2_6" {
-  title         = "5.2.2.6 Enable Azure AD Identity Protection user risk policies"
-  description   = "Azure Active Directory Identity Protection user risk policies detect the probability that a user account has been compromised."
+  title         = "5.2.2.6 Enable Identity Protection user risk policies"
+  description   = "Microsoft Entra ID Protection user risk policies detect the probability that a user account has been compromised"
   query         = query.azuread_user_risk_policy
   documentation = file("./cis_v400/docs/cis_v400_5_2_2_6.md")
 
@@ -269,8 +269,8 @@ control "cis_v400_5_2_2_6" {
 }
 
 control "cis_v400_5_2_2_7" {
-  title         = "5.2.2.7 Enable Azure AD Identity Protection sign-in risk policies"
-  description   = "Azure Active Directory Identity Protection sign-in risk detects risks in real-time and offline. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account."
+  title         = "5.2.2.7 Enable Identity Protection sign-in risk policies"
+  description   = "Microsoft Entra ID Protection sign-in risk detects risks in real-time and offline. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account."
   query         = query.azuread_signin_risk_policy
   documentation = file("./cis_v400/docs/cis_v400_5_2_2_7.md")
 
@@ -284,8 +284,8 @@ control "cis_v400_5_2_2_7" {
 }
 
 control "cis_v400_5_2_2_8" {
-  title         = "5.2.2.8 Ensure 'Microsoft Azure Management' is limited to administrative roles"
-  description   = "The Microsoft Azure Management application governs various Azure services and can be secured through the implementation of a Conditional Access policy. This policy can restrict specific user accounts from accessing the related portals and applications."
+  title         = "5.2.2.8 Ensure admin center access is limited to administrative roles"
+  description   = "When a Conditional Access policy targets the Microsoft Admin Portals cloud app. Microsoft Admin Portals should be restricted to specific pre-determined administrative roles."
   query         = query.azuread_microsoft_azure_management_limited_to_administrative_roles
   documentation = file("./cis_v400/docs/cis_v400_5_2_2_8.md")
 
