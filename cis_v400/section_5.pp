@@ -46,12 +46,6 @@ locals {
   })
 }
 
-locals {
-  cis_v400_5_2_6_common_tags = merge(local.cis_v400_5_2_common_tags, {
-    cis_section_id = "5.2.6"
-  })
-}
-
 benchmark "cis_v400_5" {
   title         = "5 Microsoft Entra admin center"
   documentation = file("./cis_v400/docs/cis_v400_5.md")
@@ -165,8 +159,7 @@ benchmark "cis_v400_5_2" {
   title = "5.2 Protection"
   children = [
     benchmark.cis_v400_5_2_2,
-    benchmark.cis_v400_5_2_4,
-    benchmark.cis_v400_5_2_6
+    benchmark.cis_v400_5_2_4
   ]
 
   tags = merge(local.cis_v400_5_2_common_tags, {
