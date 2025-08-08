@@ -6,7 +6,7 @@ locals {
 }
 
 benchmark "cis_v200" {
-  title         = "CIS v2.0.0"
+  title         = "Microsoft 365 CIS v2.0.0"
   description   = "The CIS Microsoft 365 Security Configuration Benchmark provides prescriptive guidance for establishing a secure configuration posture for Microsoft 365 Cloud offerings running on any OS."
   documentation = file("./cis_v200/docs/cis_overview.md")
 
