@@ -31,7 +31,7 @@ query "azuread_guest_user_access_reviews_configured" {
           then t.tenant_id || ' has Access Reviews configured for guest users.'
         else t.tenant_id || ' does not have Access Reviews configured for guest users.'
       end as reason
-      -- ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
+      ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
     from
       tenant_list as t
       left join guest_user_access_reviews as p on p.tenant_id = t.tenant_id;
@@ -107,6 +107,7 @@ query "azuread_privileged_roles_access_reviews_configured" {
                     ), ', '
                   )
         end as reason
+        ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
       from
         tenant_list as t
         left join role_check as r on r.tenant_id = t.tenant_id;

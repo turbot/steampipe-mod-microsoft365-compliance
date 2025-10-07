@@ -162,7 +162,7 @@ query "azuread_conditional_access_require_managed_device_for_authentication" {
         when conditional_access_policy_count > 0 then t.tenant_id || ' has a Conditional Access policy requiring users to authenticate only from a compliant or hybrid-joined device.'
         else t.tenant_id || ' does not have a Conditional Access policy requiring users to authenticate only from a compliant or hybrid-joined device.'
       end as reason
-      -- ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
+      ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
     from
       tenant_list as t
       left join conditional_access_policy as p on p.tenant_id = t.tenant_id;
@@ -200,7 +200,7 @@ query "azuread_conditional_access_require_managed_device_register_security_info"
         when conditional_access_policy_count > 0 then t.tenant_id || ' has a Conditional Access policy requiring users to register security information only from a compliant or hybrid-joined device.'
         else t.tenant_id ||  ' does not have a Conditional Access policy requiring users to register security information only from a compliant or hybrid-joined device.'
       end as reason
-      -- ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
+      ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
     from
       tenant_list as t
       left join conditional_access_policy as p on p.tenant_id = t.tenant_id;
@@ -241,7 +241,7 @@ query "azuread_conditional_access_signin_frequency_intune_every_time" {
         when conditional_access_policy_count > 0 then t.tenant_id || ' has a Conditional Access policy enforcing sign-in frequency set to Every time for Microsoft Intune Enrollment.'
         else t.tenant_id || ' does not have a Conditional Access policy enforcing sign-in frequency set to Every time for Microsoft Intune Enrollment.'
       end as reason
-      -- ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
+      ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
     from
       tenant_list as t
       left join conditional_access_policy as p on p.tenant_id = t.tenant_id;
@@ -279,7 +279,7 @@ query "azuread_conditional_access_block_device_code_flow" {
         when conditional_access_policy_count > 0 then t.tenant_id || ' has a Conditional Access policy that blocks the device code sign-in flow.'
         else t.tenant_id || ' does not have a Conditional Access policy that blocks the device code sign-in flow.'
       end as reason
-      -- ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
+      ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
     from
       tenant_list as t
       left join conditional_access_policy as p on p.tenant_id = t.tenant_id;
@@ -317,7 +317,7 @@ query "azuread_conditional_access_block_signin_risk_medium_high" {
         when conditional_access_policy_count > 0 then t.tenant_id || ' has a Conditional Access policy that blocks sign-in for medium and high risk levels.'
         else t.tenant_id || ' does not have a Conditional Access policy that blocks sign-in for medium and high risk levels.'
       end as reason
-      -- ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
+      ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
     from
       tenant_list as t
       left join conditional_access_policy as p on p.tenant_id = t.tenant_id;

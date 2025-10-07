@@ -189,7 +189,7 @@ query "azuread_user_sspr_enabled" {
   EOQ
 }
 
-query "microsift_user_mfa_capable" {
+query "microsoft_user_mfa_capable" {
   sql = <<-EOQ
     select
       id as resource,
@@ -201,7 +201,7 @@ query "microsift_user_mfa_capable" {
         when is_mfa_capable then title || ' is MFA capable.'
         else title || ' is MFA not capable.'
       end as reason
-     -- ${local.common_dimensions_sql}
+      ${local.common_dimensions_sql}
     from
       microsoft365_user;
   EOQ

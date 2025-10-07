@@ -21,7 +21,8 @@ query "azuread_dynamic_group_for_guest_user" {
   sql = <<-EOQ
     with tenant_list as (
       select
-        distinct on (tenant_id) tenant_id
+        distinct on (tenant_id) tenant_id,
+        _ctx
       from
         azuread_user
     ), dynamic_group_for_guest_user as (
@@ -34,7 +35,7 @@ query "azuread_dynamic_group_for_guest_user" {
         membership_rule = '(user.userType -eq "guest")'
         and group_types @> '[ "DynamicMembership" ]'
       group by
-        tenant_id
+        tenant_id, _ctx
     )
     select
       t.tenant_id as resource,
@@ -46,8 +47,7 @@ query "azuread_dynamic_group_for_guest_user" {
         when dynamic_group_for_guest_user_count > 0 then t.tenant_id || ' has dynamic group for guest user.'
         else t.tenant_id || ' does not have dynamic group for guest user.'
       end reason
-      -- ${local.tag_dimensions_sql}
-      -- ${local.common_dimensions_sql}
+      ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
     from
       tenant_list as t
       left join dynamic_group_for_guest_user as d on d.tenant_id = t.tenant_id

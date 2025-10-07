@@ -35,10 +35,10 @@ query "azuread_authentication_method_microsoft_authenticator_mfa_fatigue_protect
         else 'alarm'
       end as status,
       case
-        when authentication_method_policy_count > 0 then t.tenant_id || 'has Microsoft Authenticator enabled and configured with number matching, application name display, and location display enforced for all users to protect against MFA fatigue.
-        else t.tenant_id || ' does not have Microsoft Authenticator fully configured with number matching, application name display, and location display for all users to protect against MFA fatigue.
+        when authentication_method_policy_count > 0 then t.tenant_id || ' has Microsoft Authenticator enabled and configured with number matching, application name display, and location display enforced for all users to protect against MFA fatigue.'
+        else t.tenant_id || ' does not have Microsoft Authenticator fully configured with number matching, application name display, and location display for all users to protect against MFA fatigue.'
       end as reason
-      -- ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
+      ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
     from
       tenant_list as t
       left join authentication_method_policy as p on p.tenant_id = t.tenant_id;
@@ -74,7 +74,7 @@ query "azuread_authentication_method_restrict_insecure_methods" {
         when required_methods_enabled = 3 then t.tenant_id || ' has SMS, Voice call, and Email OTP authentication methods all enabled.'
         else t.tenant_id || ' does not have all of SMS, Voice call, and Email OTP authentication methods enabled.'
       end as reason
-      -- ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
+      ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
     from
       tenant_list as t
       left join authentication_method_policy as p on p.tenant_id = t.tenant_id;
