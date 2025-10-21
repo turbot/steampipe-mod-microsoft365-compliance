@@ -121,7 +121,7 @@ benchmark "cis_v500_5_1_3" {
     control.cis_v500_5_1_3_1
   ]
 
-  tags = merge(local.cis_v500_5_1_2_common_tags, {
+  tags = merge(local.cis_v500_5_1_3_common_tags, {
     type    = "Benchmark"
     service = "Azure/ActiveDirectory"
   })
@@ -491,7 +491,7 @@ control "cis_v500_5_3_2" {
   query         = query.azuread_guest_user_access_reviews_configured
   documentation = file("./cis_v500/docs/cis_v500_5_3_2.md")
 
-  tags = merge(local.cis_v500_5_2_4_common_tags, {
+  tags = merge(local.cis_v500_5_3_common_tags, {
     cis_item_id           = "5.3.2"
     cis_level             = "1"
     cis_type              = "automated"
@@ -506,7 +506,7 @@ control "cis_v500_5_3_3" {
   query         = query.azuread_privileged_roles_access_reviews_configured
   documentation = file("./cis_v500/docs/cis_v500_5_3_3.md")
 
-  tags = merge(local.cis_v500_5_2_4_common_tags, {
+  tags = merge(local.cis_v500_5_3_common_tags, {
     cis_item_id           = "5.3.3"
     cis_level             = "1"
     cis_type              = "automated"
