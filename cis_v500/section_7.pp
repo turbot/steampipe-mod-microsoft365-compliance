@@ -47,7 +47,7 @@ control "cis_v500_7_2_3" {
     cis_item_id           = "7.2.3"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Microsoft365/SharePoint"
   })
 }
@@ -62,7 +62,7 @@ control "cis_v500_7_2_5" {
     cis_item_id           = "7.2.5"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Microsoft365/SharePoint"
   })
 }
@@ -77,7 +77,7 @@ control "cis_v500_7_2_6" {
     cis_item_id           = "7.2.6"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Microsoft365/SharePoint"
   })
 }

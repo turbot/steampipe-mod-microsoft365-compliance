@@ -38,7 +38,6 @@ query "microsoft365_sharepoint_external_sharing_managed_by_domain_whitelist_or_b
   sql = <<-EOQ
     select
       tenant_id as resource,
-      jsonb_array_length(sharepoint_settings -> 'sharing_allowed_domain_list'),
       case
         when jsonb_array_length(sharepoint_settings -> 'sharing_allowed_domain_list') > 0  then 'ok'
         else 'alarm'

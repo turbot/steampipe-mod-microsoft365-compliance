@@ -45,7 +45,7 @@ control "cis_v500_3_1_1" {
     cis_item_id           = "3.1.1"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }

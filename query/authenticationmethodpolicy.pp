@@ -66,7 +66,6 @@ query "azuread_authentication_method_restrict_insecure_methods" {
     select
       t.tenant_id as resource,
       case
-        -- all 3 methods must be disabled
         when required_methods_enabled = 3 then 'ok'
         else 'alarm'
       end as status,

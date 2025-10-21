@@ -61,7 +61,7 @@ control "cis_v500_1_1_1" {
     cis_item_id           = "1.1.1"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -76,7 +76,7 @@ control "cis_v500_1_1_3" {
     cis_item_id           = "1.1.3"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -103,7 +103,7 @@ control "cis_v500_1_2_1" {
     cis_item_id           = "1.2.1"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -131,7 +131,7 @@ control "cis_v500_1_3_1" {
     cis_item_id           = "1.3.1"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -146,7 +146,7 @@ control "cis_v500_1_3_3" {
     cis_item_id           = "1.3.3"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }

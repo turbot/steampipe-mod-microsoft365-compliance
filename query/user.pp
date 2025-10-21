@@ -199,7 +199,7 @@ query "microsoft_user_mfa_capable" {
       end as status,
       case
         when is_mfa_capable then title || ' is MFA capable.'
-        else title || ' is MFA not capable.'
+        else title || ' is not MFA capable.'
       end as reason
       ${local.common_dimensions_sql}
     from
