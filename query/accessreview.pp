@@ -28,8 +28,8 @@ query "azuread_guest_user_access_reviews_configured" {
       end as status,
       case
         when guest_user_access_review > 0
-          then t.tenant_id || ' has Access Reviews configured for guest users.'
-        else t.tenant_id || ' does not have Access Reviews configured for guest users.'
+          then t.tenant_id || ' has access reviews configured for guest users.'
+        else t.tenant_id || ' does not have access reviews configured for guest users.'
       end as reason
       ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
     from
@@ -94,8 +94,8 @@ query "azuread_privileged_roles_access_reviews_configured" {
         case
           when array(select id from privileged_roles where tenant_id = t.tenant_id)
               <@ coalesce(r.roles_reviewed, '{}')
-          then t.tenant_id || ' has Access Reviews configured monthly (or more frequently) for all high-privileged roles (Global Administrator, Exchange Administrator, SharePoint Administrator, Teams Administrator, Security Administrator).'
-          else t.tenant_id || ' does not have Access Reviews configured monthly for all high-privileged roles. Missing: '
+          then t.tenant_id || ' has access reviews configured monthly (or more frequently) for all high-privileged roles (Global Administrator, Exchange Administrator, SharePoint Administrator, Teams Administrator, Security Administrator).'
+          else t.tenant_id || ' does not have access reviews configured monthly for all high-privileged roles. Missing: '
               || array_to_string(
                     array(
                       select pr.display_name

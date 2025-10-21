@@ -54,7 +54,7 @@ locals {
 
 locals {
   cis_v500_5_3_common_tags = merge(local.cis_v500_5_common_tags, {
-    cis_section_id = "5.2"
+    cis_section_id = "5.3"
   })
 }
 
