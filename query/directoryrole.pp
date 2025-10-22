@@ -75,3 +75,32 @@ query "azuread_microsoft_azure_management_limited_to_administrative_roles" {
       tenant_list as t;
   EOQ
 }
+
+query "azuread_administrative_account_on_premises_sync_disabled" {
+  sql = <<-EOQ
+    with role_members as (
+      select
+        distinct jsonb_array_elements_text(member_ids) as member_id,
+        title as role_title
+      from
+        azuread_directory_role
+      where
+        title like '%Administrator%'
+        or title = 'Global Reader'
+    )
+    select
+      u.user_principal_name as resource,
+      case
+        when u.on_premises_sync_enabled then 'alarm'
+        else 'ok'
+      end as status,
+      case
+        when u.on_premises_sync_enabled
+          then u.display_name || ' is ' || rm.role_title || ' and has on-premises sync enabled.'
+        else u.display_name || ' is ' || rm.role_title || ' and on-premises sync is disabled.'
+      end as reason
+    from
+      role_members rm join azuread_user u on u.id = rm.member_id;
+  EOQ
+}
+
