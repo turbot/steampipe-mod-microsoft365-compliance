@@ -1,3 +1,13 @@
+## v1.3.0 [2025-10-22]
+
+_What's new?_
+
+- Added CIS v5.0.0 benchmark (`powerpipe benchmark run benchmark.cis_v500`). ([#81](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/81))
+
+_Enhancements_
+
+- Updated all top-level benchmark titles to include `Microsoft 365` for clearer identification and consistency across benchmarks. ([#80](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/80))
+
 ## v1.2.0 [2025-02-14]
 
 _What's new?_
