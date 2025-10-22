@@ -188,3 +188,21 @@ query "azuread_user_sspr_enabled" {
       azuread_authorization_policy;
   EOQ
 }
+
+query "microsoft_user_mfa_capable" {
+  sql = <<-EOQ
+    select
+      id as resource,
+      case
+        when is_mfa_capable then 'ok'
+        else 'alarm'
+      end as status,
+      case
+        when is_mfa_capable then title || ' is MFA capable.'
+        else title || ' is not MFA capable.'
+      end as reason
+      ${local.common_dimensions_sql}
+    from
+      microsoft365_user;
+  EOQ
+}
