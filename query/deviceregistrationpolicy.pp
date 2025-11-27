@@ -94,7 +94,7 @@ query "azuread_local_admin_assignment_limited" {
         when azure_ad_join -> 'localAdmins' -> 'registeringUsers' ->> '@odata.type' = '#microsoft.graph.noDeviceRegistrationMembership' then tenant_id || ' has local administrator assignment disabled (none) during Entra join.'
         else tenant_id || ' has local administrator assignment allowed for all users during Entra join.'
       end as reason
-      -- ${local.common_dimensions_sql}
+      ${local.common_dimensions_sql}
     from
       azuread_device_registration_policy;
   EOQ

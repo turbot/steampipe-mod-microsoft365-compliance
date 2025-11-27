@@ -98,7 +98,6 @@ benchmark "cis_v600_5_1" {
     benchmark.cis_v600_5_1_3,
     benchmark.cis_v600_5_1_4,
     benchmark.cis_v600_5_1_5
-
   ]
 
   tags = merge(local.cis_v600_5_1_common_tags, {
