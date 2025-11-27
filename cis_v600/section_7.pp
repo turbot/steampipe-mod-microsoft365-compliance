@@ -10,17 +10,11 @@ locals {
   })
 }
 
-locals {
-  cis_v600_7_3_common_tags = merge(local.cis_v600_7_common_tags, {
-    cis_section_id = "7.3"
-  })
-}
-
 benchmark "cis_v600_7" {
   title         = "7 SharePoint admin center"
   documentation = file("./cis_v600/docs/cis_v600_7.md")
   children = [
-    benchmark.cis_v600_7_2,
+    benchmark.cis_v600_7_2
   ]
 
   tags = merge(local.cis_v600_7_common_tags, {
@@ -34,7 +28,7 @@ benchmark "cis_v600_7_2" {
   children = [
     control.cis_v600_7_2_3,
     control.cis_v600_7_2_5,
-    control.cis_v600_7_2_6,
+    control.cis_v600_7_2_6
   ]
 
   tags = merge(local.cis_v600_7_2_common_tags, {
@@ -53,7 +47,7 @@ control "cis_v600_7_2_3" {
     cis_item_id           = "7.2.3"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Microsoft365/SharePoint"
   })
 }
@@ -68,7 +62,7 @@ control "cis_v600_7_2_5" {
     cis_item_id           = "7.2.5"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Microsoft365/SharePoint"
   })
 }
@@ -83,19 +77,7 @@ control "cis_v600_7_2_6" {
     cis_item_id           = "7.2.6"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Microsoft365/SharePoint"
   })
 }
-
-benchmark "cis_v600_7_3" {
-  title = "7.3 Settings"
-  children = [
-  ]
-
-  tags = merge(local.cis_v600_7_3_common_tags, {
-    type    = "Benchmark"
-    service = "Microsoft365/SharePoint"
-  })
-}
-

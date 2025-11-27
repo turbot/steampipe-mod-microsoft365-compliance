@@ -10,23 +10,11 @@ locals {
   })
 }
 
-locals {
-  cis_v600_3_2_common_tags = merge(local.cis_v600_3_common_tags, {
-    cis_section_id = "3.2"
-  })
-}
-
-locals {
-  cis_v600_3_3_common_tags = merge(local.cis_v600_3_common_tags, {
-    cis_section_id = "3.3"
-  })
-}
-
 benchmark "cis_v600_3" {
   title         = "3 Microsoft Purview"
   documentation = file("./cis_v600/docs/cis_v600_3.md")
   children = [
-    benchmark.cis_v600_3_1,
+    benchmark.cis_v600_3_1
   ]
 
   tags = merge(local.cis_v600_3_common_tags, {
@@ -57,30 +45,8 @@ control "cis_v600_3_1_1" {
     cis_item_id           = "3.1.1"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Microsoft365/Purview"
-  })
-}
-
-benchmark "cis_v600_3_2" {
-  title = "3.2 Data loss protection"
-  children = [
-  ]
-
-  tags = merge(local.cis_v600_3_2_common_tags, {
-    type    = "Benchmark"
-    service = "Microsoft365/Purview"
-  })
-}
-
-benchmark "cis_v600_3_3" {
-  title = "3.3 Information Protection"
-  children = [
-  ]
-
-  tags = merge(local.cis_v600_3_3_common_tags, {
-    type    = "Benchmark"
-    service = "Microsoft365/Purview"
   })
 }
 

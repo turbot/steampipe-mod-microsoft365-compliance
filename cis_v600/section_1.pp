@@ -41,7 +41,7 @@ benchmark "cis_v600_1_1" {
   title = "1.1 Users"
   children = [
     control.cis_v600_1_1_1,
-    control.cis_v600_1_1_3,
+    control.cis_v600_1_1_3
   ]
 
   tags = merge(local.cis_v600_1_1_common_tags, {
@@ -60,7 +60,7 @@ control "cis_v600_1_1_1" {
     cis_item_id           = "1.1.1"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -75,7 +75,7 @@ control "cis_v600_1_1_3" {
     cis_item_id           = "1.1.3"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -83,7 +83,7 @@ control "cis_v600_1_1_3" {
 benchmark "cis_v600_1_2" {
   title = "1.2 Teams & groups"
   children = [
-    control.cis_v600_1_2_1,
+    control.cis_v600_1_2_1
   ]
 
   tags = merge(local.cis_v600_1_2_common_tags, {
@@ -102,7 +102,7 @@ control "cis_v600_1_2_1" {
     cis_item_id           = "1.2.1"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -111,7 +111,7 @@ benchmark "cis_v600_1_3" {
   title = "1.3 Settings"
   children = [
     control.cis_v600_1_3_1,
-    control.cis_v600_1_3_3,
+    control.cis_v600_1_3_3
   ]
 
   tags = merge(local.cis_v600_1_3_common_tags, {
@@ -130,7 +130,7 @@ control "cis_v600_1_3_1" {
     cis_item_id           = "1.3.1"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -145,7 +145,7 @@ control "cis_v600_1_3_3" {
     cis_item_id           = "1.3.3"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }

@@ -97,7 +97,8 @@ benchmark "cis_v600_5_1" {
     benchmark.cis_v600_5_1_2,
     benchmark.cis_v600_5_1_3,
     benchmark.cis_v600_5_1_4,
-    benchmark.cis_v600_5_1_5,
+    benchmark.cis_v600_5_1_5
+
   ]
 
   tags = merge(local.cis_v600_5_1_common_tags, {
@@ -109,7 +110,7 @@ benchmark "cis_v600_5_1" {
 benchmark "cis_v600_5_1_2" {
   title = "5.1.2 Users"
   children = [
-    control.cis_v600_5_1_2_2,
+    control.cis_v600_5_1_2_2
   ]
 
   tags = merge(local.cis_v600_5_1_2_common_tags, {
@@ -128,7 +129,7 @@ control "cis_v600_5_1_2_2" {
     cis_item_id           = "5.1.2.2"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -156,7 +157,7 @@ control "cis_v600_5_1_3_1" {
     cis_item_id           = "5.1.3.1"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -171,7 +172,7 @@ control "cis_v600_5_1_3_2" {
     cis_item_id           = "5.1.3.2"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -203,7 +204,7 @@ control "cis_v600_5_1_4_1" {
     cis_item_id           = "5.1.4.1"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -218,7 +219,7 @@ control "cis_v600_5_1_4_2" {
     cis_item_id           = "5.1.4.2"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -233,7 +234,7 @@ control "cis_v600_5_1_4_3" {
     cis_item_id           = "5.1.4.3"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -248,7 +249,7 @@ control "cis_v600_5_1_4_4" {
     cis_item_id           = "5.1.4.4"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -263,7 +264,7 @@ control "cis_v600_5_1_4_5" {
     cis_item_id           = "5.1.4.5"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -278,7 +279,7 @@ control "cis_v600_5_1_4_6" {
     cis_item_id           = "5.1.4.6"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -306,7 +307,7 @@ control "cis_v600_5_1_5_1" {
     cis_item_id           = "5.1.5.1"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -321,30 +322,8 @@ control "cis_v600_5_1_5_2" {
     cis_item_id           = "5.1.5.2"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
-  })
-}
-
-benchmark "cis_v600_5_1_6" {
-  title = "5.1.6 External Identities"
-  children = [
-  ]
-
-  tags = merge(local.cis_v600_5_1_6_common_tags, {
-    type    = "Benchmark"
-    service = "Azure/ActiveDirectory"
-  })
-}
-
-benchmark "cis_v600_5_1_8" {
-  title = "5.1.8 Hybrid management"
-  children = [
-  ]
-
-  tags = merge(local.cis_v600_5_1_8_common_tags, {
-    type    = "Benchmark"
-    service = "Azure/ActiveDirectory"
   })
 }
 
@@ -394,7 +373,7 @@ control "cis_v600_5_2_2_1" {
     cis_item_id           = "5.2.2.1"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -409,7 +388,7 @@ control "cis_v600_5_2_2_2" {
     cis_item_id           = "5.2.2.2"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -424,7 +403,7 @@ control "cis_v600_5_2_2_3" {
     cis_item_id           = "5.2.2.3"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -439,7 +418,7 @@ control "cis_v600_5_2_2_4" {
     cis_item_id           = "5.2.2.4"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -499,7 +478,7 @@ control "cis_v600_5_2_2_9" {
     cis_item_id           = "5.2.2.9"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -514,7 +493,7 @@ control "cis_v600_5_2_2_10" {
     cis_item_id           = "5.2.2.10"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -529,7 +508,7 @@ control "cis_v600_5_2_2_11" {
     cis_item_id           = "5.2.2.11"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -544,7 +523,7 @@ control "cis_v600_5_2_2_12" {
     cis_item_id           = "5.2.2.12"
     cis_level             = "1"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -619,7 +598,7 @@ control "cis_v600_5_2_3_7" {
     cis_item_id           = "5.2.3.7"
     cis_level             = "2"
     cis_type              = "automated"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -646,7 +625,7 @@ control "cis_v600_5_2_4_1" {
     cis_item_id           = "5.2.4.1"
     cis_level             = "1"
     cis_type              = "manual"
-    microsoft_365_license = "E3"
+    microsoft_365_license = "E3,E5"
     service               = "Azure/ActiveDirectory"
   })
 }
@@ -655,7 +634,7 @@ benchmark "cis_v600_5_3" {
   title = "5.3 ID Governance"
   children = [
     control.cis_v600_5_3_2,
-    control.cis_v600_5_3_3,
+    control.cis_v600_5_3_3
   ]
 
   tags = merge(local.cis_v600_5_3_common_tags, {
