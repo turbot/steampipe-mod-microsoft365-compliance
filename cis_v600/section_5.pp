@@ -35,18 +35,6 @@ locals {
 }
 
 locals {
-  cis_v600_5_1_6_common_tags = merge(local.cis_v600_5_1_common_tags, {
-    cis_section_id = "5.1.6"
-  })
-}
-
-locals {
-  cis_v600_5_1_8_common_tags = merge(local.cis_v600_5_1_common_tags, {
-    cis_section_id = "5.1.8"
-  })
-}
-
-locals {
   cis_v600_5_2_common_tags = merge(local.cis_v600_5_common_tags, {
     cis_section_id = "5.2"
   })
