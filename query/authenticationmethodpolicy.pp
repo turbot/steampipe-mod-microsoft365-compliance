@@ -79,3 +79,38 @@ query "azuread_authentication_method_restrict_insecure_methods" {
       left join authentication_method_policy as p on p.tenant_id = t.tenant_id;
   EOQ
 }
+
+query "azuread_email_otp_disabled" {
+  sql = <<-EOQ
+    with tenant_list as (
+      select distinct on (tenant_id) tenant_id, _ctx
+      from azuread_user
+    ),
+    email_otp_status as (
+      select
+        tenant_id,
+        cfg ->> 'state' as email_otp_state
+      from
+        azuread_authentication_method_policy,
+        jsonb_array_elements(authentication_method_configurations) as cfg
+      where
+        cfg ->> 'id' = 'Email'
+    )
+    select
+      t.tenant_id as resource,
+      case
+        when e.email_otp_state is null then 'ok'
+        when e.email_otp_state = 'disabled' then 'ok'
+        else 'alarm'
+      end as status,
+      case
+        when e.email_otp_state is null then t.tenant_id || ' has Email OTP authentication method not configured (defaults to disabled).'
+        when e.email_otp_state = 'disabled' then t.tenant_id || ' has Email OTP authentication method disabled.'
+        else t.tenant_id || ' has Email OTP authentication method enabled.'
+      end as reason
+      ${replace(local.common_dimensions_qualifier_sql, "__QUALIFIER__", "t.")}
+    from
+      tenant_list as t
+      left join email_otp_status as e on e.tenant_id = t.tenant_id;
+  EOQ
+}
