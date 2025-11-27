@@ -216,8 +216,8 @@ query "azuread_user_cannot_create_security_groups" {
         else 'alarm'
       end as status,
       case
-        when not (default_user_role_permissions -> 'allowedToCreateSecurityGroups')::bool then tenant_id || ' has users cannot create security groups.'
-        else tenant_id || ' has users can create security groups.'
+        when not (default_user_role_permissions -> 'allowedToCreateSecurityGroups')::bool then tenant_id || ' users cannot create security groups.'
+        else tenant_id || ' users can create security groups.'
       end as reason
       ${local.common_dimensions_sql}
     from
