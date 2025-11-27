@@ -9,7 +9,7 @@ query "azuread_device_join_restricted" {
       end as status,
       case
         when azure_ad_join -> 'allowedToJoin' ->> '@odata.type' = '#microsoft.graph.enumeratedDeviceRegistrationMembership' then tenant_id || ' has device join restricted to selected users or groups.'
-        when azure_ad_join -> 'allowedToJoin' ->> '@odata.type' = '#microsoft.graph.noDeviceRegistrationMembership' then tenant_id || ' has device join restricted (no users allowed).'
+        when azure_ad_join -> 'allowedToJoin' ->> '@odata.type' = '#microsoft.graph.noDeviceRegistrationMembership' then tenant_id || ' has device join restricted.'
         else tenant_id || ' has device join allowed for all users.'
       end as reason
       ${local.common_dimensions_sql}
@@ -52,7 +52,7 @@ query "azuread_ga_not_local_admin_on_join" {
         when not ((azure_ad_join -> 'localAdmins' -> 'enableGlobalAdmins')::bool) then tenant_id || ' has Global Administrator role not added as local administrator during Entra join.'
         else tenant_id || ' has Global Administrator role added as local administrator during Entra join.'
       end as reason
-     --  ${local.common_dimensions_sql}
+      ${local.common_dimensions_sql}
     from
       azuread_device_registration_policy;
   EOQ

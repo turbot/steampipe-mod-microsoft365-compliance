@@ -164,7 +164,7 @@ control "cis_v600_5_1_3_1" {
 control "cis_v600_5_1_3_2" {
   title         = "5.1.3.2 Ensure users cannot create security groups"
   description   = "This setting allows users in the organization to create new security groups and add members to these groups in the Azure portal, API, or PowerShell. These new groups also show up in the Access Panel for all other users. If the policy setting on the group allows it, other users can create requests to join these groups. The recommended state is Users can create security groups in Azure portals, API or PowerShell set to No."
-  query         = query.azuread_users_cannot_create_security_groups
+  query         = query.azuread_user_cannot_create_security_groups
   documentation = file("./cis_v600/docs/cis_v600_5_1_3_2.md")
 
   tags = merge(local.cis_v600_5_1_3_common_tags, {
@@ -271,7 +271,7 @@ control "cis_v600_5_1_4_5" {
 control "cis_v600_5_1_4_6" {
   title         = "5.1.4.6 Ensure users are restricted from recovering BitLocker keys"
   description   = "This setting determines if users can self-service recover their BitLocker key(s). 'Yes' restricts non-admin users from being able to see the BitLocker key(s) for their owned devices if there are any. 'No' allows all users to recover their BitLocker key(s). The recommended state is Yes."
-  query         = query.azuread_bitlocker_recovery_restricted
+  query         = query.azuread_user_bitlocker_recovery_restricted
   documentation = file("./cis_v600/docs/cis_v600_5_1_4_6.md")
 
   tags = merge(local.cis_v600_5_1_4_common_tags, {
@@ -590,7 +590,7 @@ control "cis_v600_5_2_3_5" {
 control "cis_v600_5_2_3_7" {
   title         = "5.2.3.7 Ensure the email OTP authentication method is disabled"
   description   = "Authentication methods support a wide variety of scenarios for signing in to Microsoft 365 resources. Some of these methods are inherently more secure than others but require more investment in time to get users enrolled and operational. The email one-time passcode feature is a way to authenticate B2B collaboration users when they can't be authenticated through other means, such as Microsoft Entra ID, Microsoft account (MSA), or social identity providers. When a B2B guest user tries to redeem your invitation or sign in to your shared resources, they can request a temporary passcode, which is sent to their email address. Then they enter this passcode to continue signing in. The recommended state is to Disable email OTP."
-  query         = query.azuread_email_otp_disabled
+  query         = query.azuread_authentication_method_email_otp_disabled
   documentation = file("./cis_v600/docs/cis_v600_5_2_3_7.md")
 
   tags = merge(local.cis_v600_5_2_3_common_tags, {

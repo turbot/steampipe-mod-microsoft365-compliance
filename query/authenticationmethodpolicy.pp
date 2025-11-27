@@ -80,7 +80,7 @@ query "azuread_authentication_method_restrict_insecure_methods" {
   EOQ
 }
 
-query "azuread_email_otp_disabled" {
+query "azuread_authentication_method_email_otp_disabled" {
   sql = <<-EOQ
     with tenant_list as (
       select distinct on (tenant_id) tenant_id, _ctx
@@ -104,7 +104,7 @@ query "azuread_email_otp_disabled" {
         else 'alarm'
       end as status,
       case
-        when e.email_otp_state is null then t.tenant_id || ' has Email OTP authentication method not configured (defaults to disabled).'
+        when e.email_otp_state is null then t.tenant_id || ' has Email OTP authentication method not configured.'
         when e.email_otp_state = 'disabled' then t.tenant_id || ' has Email OTP authentication method disabled.'
         else t.tenant_id || ' has Email OTP authentication method enabled.'
       end as reason
