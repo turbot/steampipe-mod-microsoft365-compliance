@@ -1,8 +1,18 @@
+## v1.4.0 [2025-12-02]
+
+_Dependencies_
+
+- AzureAD plugin `v1.9.0` or higher is now required. ([#84](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/84))
+
+_What's new?_
+
+- Added CIS v6.0.0 benchmark (`powerpipe benchmark run microsoft365_compliance.benchmark.cis_v600`). ([#84](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/84))
+
 ## v1.3.0 [2025-10-22]
 
 _What's new?_
 
-- Added CIS v5.0.0 benchmark (`powerpipe benchmark run benchmark.cis_v500`). ([#81](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/81))
+- Added CIS v5.0.0 benchmark (`powerpipe benchmark run microsoft365_compliance.benchmark.cis_v500`). ([#81](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/81))
 
 _Enhancements_
 
@@ -12,7 +22,7 @@ _Enhancements_
 
 _What's new?_
 
-- Added CIS v4.0.0 benchmark (`powerpipe benchmark run benchmark.cis_v400`). ([#76](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/76))
+- Added CIS v4.0.0 benchmark (`powerpipe benchmark run microsoft365_compliance.benchmark.cis_v400`). ([#76](https://github.com/turbot/steampipe-mod-microsoft365-compliance/pull/76))
 
 
 ## v1.0.1 [2024-10-24]
