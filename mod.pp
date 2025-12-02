@@ -15,7 +15,7 @@ mod "microsoft365_compliance" {
 
   require {
     plugin "azuread" {
-      min_version = "1.7.0"
+      min_version = "1.9.0"
     }
     plugin "microsoft365" {
       min_version = "1.2.0"
